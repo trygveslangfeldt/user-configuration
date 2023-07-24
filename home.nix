@@ -77,6 +77,4 @@
     ./modules/programs/vim.nix
     ./modules/programs/dircolors.nix
   ];
-
-  # programs.vim = vim;
 }
