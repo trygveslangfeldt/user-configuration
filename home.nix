@@ -39,6 +39,7 @@
   # plain files is through 'home.file'.
   home.file = {
     ".screenrc".source = dotfiles/screenrc;
+    ".conkyrc".source = dotfiles/conkyrc;
   };
 
   # You can also manage environment variables but you will have to manually
