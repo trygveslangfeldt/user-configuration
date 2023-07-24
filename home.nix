@@ -40,6 +40,7 @@
   home.file = {
     ".screenrc".source = dotfiles/screenrc;
     ".conkyrc".source = dotfiles/conkyrc;
+    ".xxkbrc".source = dotfiles/xxkbrc;
   };
 
   # You can also manage environment variables but you will have to manually
