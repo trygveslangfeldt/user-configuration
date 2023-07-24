@@ -58,6 +58,8 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  xdg.enable = true;
+
   imports = [
     ./modules/programs/bash.nix
     ./modules/programs/console.nix
