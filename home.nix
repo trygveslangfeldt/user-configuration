@@ -66,5 +66,6 @@
     ./modules/programs/git.nix
     ./modules/programs/ssh.nix
     ./modules/programs/dircolors.nix
+    ./modules/services/window-managers/i3.nix
   ];
 }
