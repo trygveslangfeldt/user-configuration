@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  programs.fzf.enable = true;
+
   programs.vim = {
     enable = true;
     defaultEditor = true;
