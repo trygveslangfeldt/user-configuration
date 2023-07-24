@@ -13,6 +13,6 @@
   ];
 
   home.file = {
-    ".conkyrc".source = dotfiles/conkyrc;
+    ".conkyrc".source = ./conkyrc;
   };
 }

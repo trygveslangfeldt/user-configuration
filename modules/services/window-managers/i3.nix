@@ -21,17 +21,13 @@ let
     mon1 = "eDP-1";
   };
 in {
+  imports = [
+    ./../../programs/conky/conky.nix
+  ];
+
   home.packages = [
     pkgs.rofi
-    pkgs.conky
     pkgs.scrot
-    (pkgs.writeShellScriptBin "conky-bar" ''
-      echo '{"version":1}'
-      echo '['
-      echo '[],'
-
-      exec conky -c ${config.home.homeDirectory}/.conkyrc
-    '')
   ];
 
   xsession.windowManager.i3 = {

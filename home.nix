@@ -39,7 +39,6 @@
   # plain files is through 'home.file'.
   home.file = {
     ".screenrc".source = dotfiles/screenrc;
-    ".conkyrc".source = dotfiles/conkyrc;
     ".xxkbrc".source = dotfiles/xxkbrc;
   };
 
