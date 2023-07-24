@@ -68,6 +68,7 @@
 
   imports = [
     ./modules/programs/vim.nix
+    ./modules/programs/git.nix
     ./modules/programs/dircolors.nix
   ];
 }
