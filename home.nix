@@ -60,6 +60,7 @@
 
   imports = [
     ./modules/programs/bash.nix
+    ./modules/programs/console.nix
     ./modules/programs/vim.nix
     ./modules/programs/git.nix
     ./modules/programs/ssh.nix
