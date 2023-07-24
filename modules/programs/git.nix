@@ -10,5 +10,8 @@
     aliases = {
       meld = "difftool -y -t meld";
     };
+    difftastic = {
+      enable = true;
+    };
   };
 }
