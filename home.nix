@@ -59,14 +59,8 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.bash.enable = true;
-  programs.bash.shellAliases = {
-    ls = "ls -a --color=auto";
-    ll = "ls -l";
-  };
-  programs.dircolors.enableBashIntegration = true;
-
   imports = [
+    ./modules/programs/bash.nix
     ./modules/programs/vim.nix
     ./modules/programs/git.nix
     ./modules/programs/ssh.nix
