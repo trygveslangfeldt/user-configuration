@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = [
+    pkgs.bash-completion
+  ];
+
   programs = {
     bash = {
       enable = true;
