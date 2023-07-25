@@ -5,21 +5,20 @@ with lib;
 let
   mod = "Mod4";
   alt = "Mod1";
-  i3 = {
-    ws1 = "1:chromium";
-    ws2 = "2:console";
-    ws3 = "3:gvim";
-    ws4 = "4:gvim";
-    ws5 = "5:console";
-    ws6 = "6:message";
-    ws7 = "7:chromium";
-    ws8 = "8:console";
-    ws9 = "9:ssh";
-    ws10 = "10:email";
-    ws11 = "11:share";
-    ws12 = "12:share";
-    mon1 = "eDP-1";
-  };
+  mode_system = "System (l) lock, (e) exit, (s) suspend, (h) hibernate, (r) reboot, (S) Shutdown";
+  ws1 = "1:chromium";
+  ws2 = "2:console";
+  ws3 = "3:gvim";
+  ws4 = "4:gvim";
+  ws5 = "5:console";
+  ws6 = "6:message";
+  ws7 = "7:chromium";
+  ws8 = "8:console";
+  ws9 = "9:ssh";
+  ws10 = "10:email";
+  ws11 = "11:share";
+  ws12 = "12:share";
+  mon1 = "eDP-1";
 in {
   imports = [
     ./../../programs/conky/conky.nix
@@ -33,6 +32,7 @@ in {
   ];
 
   xsession = {
+    enable = true;
     windowManager.i3 = {
       enable = true;
       config = {
@@ -45,9 +45,11 @@ in {
           size = 11.0;
         };
         window = {
+          titlebar = false;
           border = 3;
         };
         floating = {
+          titlebar = false;
           border = 3;
           criteria = [
             { "class" = "app"; }
@@ -56,12 +58,12 @@ in {
           ];
         };
         # assings = {
-          # "${i3.ws6}" = [
+          # "${ws6}" = [
             # { class = "^TelegramDesktop$"; }
             # { class = "^Slack$"; }
             # { class = "^Discord$"; }
           # ];
-          # "${i3.ws9}" = [
+          # "${ws9}" = [
             # { class = "^Pavucontrol$"; }
           # ];
         # };
@@ -73,7 +75,7 @@ in {
           "${mod}+Shift+c" = "reload";
           "${mod}+Shift+r" = "restart";
 
-          "${mod}+Insert" = "mode \"system\"";
+          "${mod}+Insert" = "mode \"${mode_system}\"";
 
           "${mod}+r" = "exec --no-startup-id ${pkgs.rofi}/bin/rofi -show run -terminal i3-sensible-terminal";
           "${mod}+p" = "exec --no-startup-id ${pkgs.rofi}/bin/rofi -show window -terminal i3-sensible-terminal";
@@ -113,48 +115,48 @@ in {
           "${mod}+${alt}+o" = "layout toggle split";
 
           "Ctrl+b" = "workspace back_and_forth";
-          "Ctrl+F1" = "workspace ${i3.ws1}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F2" = "workspace ${i3.ws2}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F3" = "workspace ${i3.ws3}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F4" = "workspace ${i3.ws4}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F5" = "workspace ${i3.ws5}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F6" = "workspace ${i3.ws6}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F7" = "workspace ${i3.ws7}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F8" = "workspace ${i3.ws8}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F9" = "workspace ${i3.ws9}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F10" = "workspace ${i3.ws10}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F11" = "workspace ${i3.ws11}, move worksapce to output ${i3.mon1}";
-          "Ctrl+F12" = "workspace ${i3.ws12}, move worksapce to output ${i3.mon1}";
+          "Ctrl+F1" = "workspace ${ws1}, move workspace to output ${mon1}";
+          "Ctrl+F2" = "workspace ${ws2}, move workspace to output ${mon1}";
+          "Ctrl+F3" = "workspace ${ws3}, move workspace to output ${mon1}";
+          "Ctrl+F4" = "workspace ${ws4}, move workspace to output ${mon1}";
+          "Ctrl+F5" = "workspace ${ws5}, move workspace to output ${mon1}";
+          "Ctrl+F6" = "workspace ${ws6}, move workspace to output ${mon1}";
+          "Ctrl+F7" = "workspace ${ws7}, move workspace to output ${mon1}";
+          "Ctrl+F8" = "workspace ${ws8}, move workspace to output ${mon1}";
+          "Ctrl+F9" = "workspace ${ws9}, move workspace to output ${mon1}";
+          "Ctrl+F10" = "workspace ${ws10}, move workspace to output ${mon1}";
+          "Ctrl+F11" = "workspace ${ws11}, move workspace to output ${mon1}";
+          "Ctrl+F12" = "workspace ${ws12}, move workspace to output ${mon1}";
 
-          "${mod}+F1" = "move container to workspace ${i3.ws1}";
-          "${mod}+F2" = "move container to workspace ${i3.ws2}";
-          "${mod}+F3" = "move container to workspace ${i3.ws3}";
-          "${mod}+F4" = "move container to workspace ${i3.ws4}";
-          "${mod}+F5" = "move container to workspace ${i3.ws5}";
-          "${mod}+F6" = "move container to workspace ${i3.ws6}";
-          "${mod}+F7" = "move container to workspace ${i3.ws7}";
-          "${mod}+F8" = "move container to workspace ${i3.ws8}";
-          "${mod}+F9" = "move container to workspace ${i3.ws9}";
-          "${mod}+F10" = "move container to workspace ${i3.ws10}";
-          "${mod}+F11" = "move container to workspace ${i3.ws11}";
-          "${mod}+F12" = "move container to workspace ${i3.ws12}";
+          "${mod}+F1" = "move container to workspace ${ws1}";
+          "${mod}+F2" = "move container to workspace ${ws2}";
+          "${mod}+F3" = "move container to workspace ${ws3}";
+          "${mod}+F4" = "move container to workspace ${ws4}";
+          "${mod}+F5" = "move container to workspace ${ws5}";
+          "${mod}+F6" = "move container to workspace ${ws6}";
+          "${mod}+F7" = "move container to workspace ${ws7}";
+          "${mod}+F8" = "move container to workspace ${ws8}";
+          "${mod}+F9" = "move container to workspace ${ws9}";
+          "${mod}+F10" = "move container to workspace ${ws10}";
+          "${mod}+F11" = "move container to workspace ${ws11}";
+          "${mod}+F12" = "move container to workspace ${ws12}";
 
-          "${mod}+Ctrl+F1" = "move container to workspace ${i3.ws1}, workspace ${i3.ws1}";
-          "${mod}+Ctrl+F2" = "move container to workspace ${i3.ws2}, workspace ${i3.ws2}";
-          "${mod}+Ctrl+F3" = "move container to workspace ${i3.ws3}, workspace ${i3.ws3}";
-          "${mod}+Ctrl+F4" = "move container to workspace ${i3.ws4}, workspace ${i3.ws4}";
-          "${mod}+Ctrl+F5" = "move container to workspace ${i3.ws5}, workspace ${i3.ws5}";
-          "${mod}+Ctrl+F6" = "move container to workspace ${i3.ws6}, workspace ${i3.ws6}";
-          "${mod}+Ctrl+F7" = "move container to workspace ${i3.ws7}, workspace ${i3.ws7}";
-          "${mod}+Ctrl+F8" = "move container to workspace ${i3.ws8}, workspace ${i3.ws8}";
-          "${mod}+Ctrl+F9" = "move container to workspace ${i3.ws9}, workspace ${i3.ws9}";
-          "${mod}+Ctrl+F10" = "move container to workspace ${i3.ws10}, workspace ${i3.ws10}";
-          "${mod}+Ctrl+F11" = "move container to workspace ${i3.ws11}, workspace ${i3.ws11}";
-          "${mod}+Ctrl+F12" = "move container to workspace ${i3.ws12}, workspace ${i3.ws12}";
+          "${mod}+Ctrl+F1" = "move container to workspace ${ws1}, workspace ${ws1}";
+          "${mod}+Ctrl+F2" = "move container to workspace ${ws2}, workspace ${ws2}";
+          "${mod}+Ctrl+F3" = "move container to workspace ${ws3}, workspace ${ws3}";
+          "${mod}+Ctrl+F4" = "move container to workspace ${ws4}, workspace ${ws4}";
+          "${mod}+Ctrl+F5" = "move container to workspace ${ws5}, workspace ${ws5}";
+          "${mod}+Ctrl+F6" = "move container to workspace ${ws6}, workspace ${ws6}";
+          "${mod}+Ctrl+F7" = "move container to workspace ${ws7}, workspace ${ws7}";
+          "${mod}+Ctrl+F8" = "move container to workspace ${ws8}, workspace ${ws8}";
+          "${mod}+Ctrl+F9" = "move container to workspace ${ws9}, workspace ${ws9}";
+          "${mod}+Ctrl+F10" = "move container to workspace ${ws10}, workspace ${ws10}";
+          "${mod}+Ctrl+F11" = "move container to workspace ${ws11}, workspace ${ws11}";
+          "${mod}+Ctrl+F12" = "move container to workspace ${ws12}, workspace ${ws12}";
         };
         modes = {
           resize = {};
-          system = {
+          "${mode_system}" = {
             "l" = "exec --no-startup-id i3lock lock, mode \"default\"";
             "e" = "exec --no-startup-id i3-msg exit, mode \"default\"";
             "s" = "exec --no-startup-id i3lock lock && systemctl suspend, mode \"default\"";
@@ -167,52 +169,52 @@ in {
         };
         workspaceOutputAssign = lib.mkOptionDefault [
           {
-            workspace = "${i3.ws1}";
-            output = "${i3.mon1}";
+            workspace = "${ws1}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws2}";
-            output = "${i3.mon1}";
+            workspace = "${ws2}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws3}";
-            output = "${i3.mon1}";
+            workspace = "${ws3}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws4}";
-            output = "${i3.mon1}";
+            workspace = "${ws4}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws5}";
-            output = "${i3.mon1}";
+            workspace = "${ws5}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws6}";
-            output = "${i3.mon1}";
+            workspace = "${ws6}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws7}";
-            output = "${i3.mon1}";
+            workspace = "${ws7}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws8}";
-            output = "${i3.mon1}";
+            workspace = "${ws8}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws9}";
-            output = "${i3.mon1}";
+            workspace = "${ws9}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws10}";
-            output = "${i3.mon1}";
+            workspace = "${ws10}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws11}";
-            output = "${i3.mon1}";
+            workspace = "${ws11}";
+            output = "${mon1}";
           }
           {
-            workspace = "${i3.ws12}";
-            output = "${i3.mon1}";
+            workspace = "${ws12}";
+            output = "${mon1}";
           }
         ];
 
@@ -225,7 +227,7 @@ in {
             statusCommand = "conky-bar";
             mode = "dock";
             hiddenState = "show";
-            trayOutput = "${i3.mon1}";
+            trayOutput = "${mon1}";
             workspaceButtons = true;
             position = "top";
             colors = {
@@ -259,6 +261,13 @@ in {
               };
             };
           }
+        ];
+
+        startup = [
+          { command = "xxkb"; notification = false; }
+          { command = "xset b off"; notification = false; }
+          { command = "xfce4-power-manager"; notification = false; }
+          { command = "xfce4-power-manager-setting"; notification = false; }
         ];
       };
     };
