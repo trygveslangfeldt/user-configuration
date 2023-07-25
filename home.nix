@@ -53,6 +53,7 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
+    NO_AT_BRIDGE = 1;
   };
 
   home.keyboard = {
