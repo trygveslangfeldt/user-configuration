@@ -6,7 +6,7 @@
   ];
 
   xdg.systemDirs.data = [
-    "\${XDG_DATA_DIRS}:${pkgs.git}/share/git/contrib/completion"
+    "\${XDG_DATA_DIRS}:${pkgs.git}/share/git/contrib/completion:"
   ];
 
   programs.git = {
