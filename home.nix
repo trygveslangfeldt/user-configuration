@@ -55,6 +55,11 @@
   home.sessionVariables = {
   };
 
+  home.keyboard = {
+    layout = "us,ru,no";
+    options = [ "grp:toggle" ];
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
