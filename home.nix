@@ -19,6 +19,7 @@
   # environment.
   home.packages = [
     pkgs.coreutils
+    pkgs.which
     pkgs.liberation_ttf
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
