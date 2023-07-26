@@ -1,5 +1,7 @@
 { config, pkgs, username, ... }:
-
+let
+  currentFilePath = builtins.currentSystem;
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -31,9 +33,10 @@
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    (pkgs.writeShellScriptBin "home-manager-switch" ''
+      home-manager switch \
+        --flake ~/code/github/user-configuration#${config.home.username}
+    '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
