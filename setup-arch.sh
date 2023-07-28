@@ -61,10 +61,9 @@ echo "username = ${username_arg}"
 
 #mkdir -p /usr/share/xsessions
 #echo "[Desktop Entry]" > /usr/share/xsessions/i3.desktop
-#echo "Name=i3" >> /usr/share/xsessions/i3.desktop
+#echo "Name=nix-i3" >> /usr/share/xsessions/i3.desktop
 #echo "Comment=improved dynamic tiling window manager" >> /usr/share/xsessions/i3.desktop
-#echo "Exec=/home/${username}/.nix-profile/bin/i3" >> /usr/share/xsessions/i3.desktop
-#echo "TryExec=/home/${username}/.nix-profile/bin/i3" >> /usr/share/xsessions/i3.desktop
+#echo "Exec=/home/${username}/.nix-profile/bin/i3-wrapper" >> /usr/share/xsessions/i3.desktop
 #echo "Type=Application" >> /usr/share/xsessions/i3.desktop
 #echo "X-LightDM-DesktopName=i3" >> /usr/share/xsessions/i3.desktop
 #echo "DesktopNames=i3" >> /usr/share/xsessions/i3.desktop
