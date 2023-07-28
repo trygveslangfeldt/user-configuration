@@ -28,6 +28,10 @@ in {
     pkgs.rofi
     pkgs.scrot
     pkgs.i3status
+
+    # wrapper for lightdm /usr/share/xsessions/i3.desktop
+    (pkgs.writeShellScriptBin "i3-wrapper" ''
+    '')
   ];
 
   xsession = {
