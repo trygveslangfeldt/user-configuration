@@ -29,8 +29,9 @@ in {
     pkgs.scrot
     pkgs.i3status
 
-    # wrapper for lightdm /usr/share/xsessions/i3.desktop
-    (pkgs.writeShellScriptBin "i3-wrapper" ''
+    # exec command for lightdm /usr/share/xsessions/nix-i3.desktop
+    # empty because lightdm source .xprofile which starts i3
+    (pkgs.writeShellScriptBin "i3-session-target" ''
     '')
   ];
 
