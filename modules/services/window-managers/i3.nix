@@ -27,7 +27,6 @@ in {
   home.packages = [
     pkgs.rofi
     pkgs.scrot
-    pkgs.i3lock
     pkgs.i3status
   ];
 
@@ -158,7 +157,7 @@ in {
           resize = {};
           "${mode_system}" = {
             "l" = "exec --no-startup-id i3lock lock, mode \"default\"";
-            "e" = "exec --no-startup-id i3-msg exit, mode \"default\"";
+            "e" = "exec --no-startup-id ${pkgs.i3}/bin/i3-msg exit, mode \"default\"";
             "s" = "exec --no-startup-id i3lock lock && systemctl suspend, mode \"default\"";
             "h" = "exec --no-startup-id i3lock lock && systemctl hibernate, mode \"default\"";
             "r" = "exec --no-startup-id systemctl reboot, mode \"default\"";
