@@ -54,10 +54,12 @@ passwd ${username_arg}
 pacman -S --noconfirm sudo
 sed -i -e 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
+pacman -S --noconfirm xorg-xinit lightdm lightdm-gtk-greater i3lock
+systemctl enable lightdm.service
+
 pacman -S --noconfirm nix git
 gpasswd -a ${username_arg} nix-users
-
-pacman -S --noconfirm xorg-xinit lightdm lightdm-gtk-greater i3lock
+systemctl enable nix-daemon.service
 
 mkdir -p /usr/share/xsessions
 cat <<EOF > /usr/share/xsessions/nix-i3.desktop
@@ -70,3 +72,9 @@ X-LightDM-DesktopName=nix-i3
 DesktopNames=nix-i3
 Keywords=tiling;wm;windowmanager;window;manager;
 EOF
+
+su - ${username_arg}
+cd ~/
+mkdir -p code/github
+cd code/github
+git clone https://github.com/msvetkin/user-configuration.git
