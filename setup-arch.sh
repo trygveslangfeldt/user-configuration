@@ -63,6 +63,15 @@ systemctl enable nix-daemon.service
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 nix-channel --update
 
+sed -i -e 's/^#Color/Color/' /etc/pacman.conf
+#makepkg.conf MAKEFLAGS="-j$(nproc)"
+
+#yay
+#pacman -S --needed git base-devel
+#git clone https://aur.archlinux.org/yay.git
+#makepkg -si
+#yay google-chrome
+
 mkdir -p /usr/share/xsessions
 cat <<EOF > /usr/share/xsessions/nix-i3.desktop
 [Desktop Entry]
