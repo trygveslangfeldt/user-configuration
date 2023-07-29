@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = [
+    (pkgs.writeShellScriptBin "nix-alacritty" ''
+      nix run --impure github:guibou/nixGL -- ${pkgs.alacritty}/bin/alacritty
+    '')
+  ];
+
   programs.alacritty = {
     enable = true;
     settings = {
@@ -68,6 +74,6 @@
   };
 
   home.sessionVariables = {
-    TERMINAL = "/usr/bin/alacritty";
+    TERMINAL = "nix-alacritty";
   };
 }
