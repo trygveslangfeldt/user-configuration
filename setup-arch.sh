@@ -72,6 +72,8 @@ sed -i -e 's/^#Color/Color/' /etc/pacman.conf
 #makepkg -si
 #yay google-chrome
 
+pacman -S --noconfirm pavucontrol pulseaudio pulseaudio-alsa
+
 mkdir -p /usr/share/xsessions
 cat <<EOF > /usr/share/xsessions/nix-i3.desktop
 [Desktop Entry]
@@ -85,6 +87,9 @@ Keywords=tiling;wm;windowmanager;window;manager;
 EOF
 
 su - ${username_arg}
+
+systemctl start --user pulseaudio.service
+
 cd ~/
 mkdir -p code/github
 cd code/github
