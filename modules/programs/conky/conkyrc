@@ -61,6 +61,18 @@ conky.text = [[
                   ${endif}
     },
     {
+        "full_text" : "Battery: ${battery_short}%",
+        "color" : ${if_match ${battery_percent} < 25}
+                      "\#ff0000"
+                  ${else}
+                      ${if_match ${battery_percent} < 50}
+                          "\#ffff00"
+                      ${else}
+                          "\#00ff00"
+                      ${endif}
+                  ${endif}
+    },
+    {
         "full_text": " ${time %a %d/%m/%y} ${time %H:%M:%S} ",
         "color": ${if_match ${time %H}<13}
                      "\#00FF00"
