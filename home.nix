@@ -41,6 +41,10 @@ in
       home-manager switch \
         --flake ~/code/github/user-configuration#${config.home.username}
     '')
+    (pkgs.writeShellScriptBin "home-manager-build" ''
+      home-manager build \
+        --flake ~/code/github/user-configuration#${config.home.username}
+    '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
