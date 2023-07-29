@@ -74,6 +74,8 @@ sed -i -e 's/^#Color/Color/' /etc/pacman.conf
 
 pacman -S --noconfirm pavucontrol pulseaudio pulseaudio-alsa
 
+pacman -S --noconfirm telegram-desktop discord
+
 mkdir -p /usr/share/xsessions
 cat <<EOF > /usr/share/xsessions/nix-i3.desktop
 [Desktop Entry]
