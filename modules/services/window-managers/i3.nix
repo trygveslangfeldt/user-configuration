@@ -20,14 +20,14 @@ let
   ws12 = "12:share";
   mon1 = "eDP-1";
 in {
-  imports = [
-    ./../../programs/conky/conky.nix
-  ];
+  # imports = [
+    # ./../../programs/conky/conky.nix
+  # ];
 
   home.packages = [
     pkgs.rofi
     pkgs.scrot
-    pkgs.i3status
+    pkgs.i3status-rust
     pkgs.xxkb
 
     # exec command for lightdm /usr/share/xsessions/nix-i3.desktop
@@ -35,6 +35,87 @@ in {
     (pkgs.writeShellScriptBin "i3-session-target" ''
     '')
   ];
+
+  programs.i3status-rust = {
+    enable = true;
+    bars = {
+      custom = {
+        blocks = [
+          {
+            block = "cpu";
+            interval = 1;
+            # format = " $icon $barchart ";
+          }
+          {
+            block = "memory";
+            format = " $icon $mem_total_used_percents.eng(w:2) ";
+          }
+          {
+            block = "disk_space";
+            path = "/";
+            info_type = "free";
+            interval = 60;
+            warning = 10.0;
+            alert = 6.0;
+            format = " $path - $available ";
+          }
+          {
+            block = "disk_space";
+            path = "/home";
+            info_type = "free";
+            interval = 60;
+            warning = 10.0;
+            alert = 6.0;
+            format = " $path - $available ";
+          }
+          # {
+            # block = "net";
+            # device = "wlan0";
+            # interval = 5;
+          # }
+          {
+            block = "sound";
+            click = [{
+              button = "left";
+              cmd = "pavucontrol";
+            }];
+          }
+          # {
+            # block = "music";
+            # player = "spotify";
+            # buttons = [ "play" "prev" "next" ];
+            # click = [
+              # {
+                # button = "play";
+                # action = "music_play";
+              # }
+              # {
+                # button = "prev";
+                # action = "music_prev";
+              # }
+              # {
+                # button = "next";
+                # action = "music_next";
+              # }
+            # ];
+          # }
+          {
+            block = "battery";
+            device = "BAT0";
+            model = "DELL M59JH18";
+          }
+          {
+            block = "time";
+            interval = 5;
+            format = " $timestamp.datetime(f:'%a %d/%m %R') ";
+          }
+        ];
+
+        # icons = "awesome5";
+        theme = "modern";
+      };
+    };
+  };
 
   xsession = {
     enable = true;
@@ -229,7 +310,7 @@ in {
               names = [ "Liberation Mono" ];
               size = 11.0;
             };
-            statusCommand = "conky-bar";
+            statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.home.homeDirectory}/.config/i3status-rust/config-custom.toml";
             mode = "dock";
             hiddenState = "show";
             trayOutput = "${mon1}";
