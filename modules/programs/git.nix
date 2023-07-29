@@ -5,9 +5,9 @@
     pkgs.meld
   ];
 
-  xdg.systemDirs.data = [
-    "\${XDG_DATA_DIRS}:${pkgs.git}/share/git/contrib/completion:"
-  ];
+  # xdg.systemDirs.data = [
+    # "\${XDG_DATA_DIRS}:${pkgs.git}/share/git/contrib/completion:"
+  # ];
 
   programs.git = {
     enable = true;
