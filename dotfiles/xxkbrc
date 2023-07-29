@@ -1,3 +1,8 @@
+XXkb.group.base:		1
+XXkb.group.alt:			2
+
+XXkb.mousebutton.1.reverse:	no
+XXkb.mousebutton.3.reverse:	no
 XXkb.mainwindow.enable: yes
 XXkb.mainwindow.appicon: no
 XXkb.mainwindow.type: tray
@@ -18,6 +23,11 @@ XXkb.controls.two_state: no
 XXkb.controls.add_when_start: yes
 XXkb.controls.add_when_create: yes
 XXkb.controls.add_when_change: no
+XXkb.controls.focusout:		yes
+XXkb.controls.two_state:	yes
+XXkb.controls.button_delete:	yes
+XXkb.controls.button_delete_and_forget:	no
+XXkb.controls.mainwindow_delete:	no
 
 XXkb.button.enable: no
 XXkb.button.border.width: 0
@@ -32,3 +42,5 @@ XXkb.button.label.text.2: ru
 XXkb.button.label.text.3: no
 
 XXkb.bell.enable: no
+
+XXkb.ignore.reverse:		no
