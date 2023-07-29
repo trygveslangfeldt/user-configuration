@@ -54,7 +54,7 @@ passwd ${username_arg}
 pacman -S --noconfirm sudo
 sed -i -e 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
-pacman -S --noconfirm xorg-xinit lightdm lightdm-gtk-greater i3lock
+pacman -S --noconfirm xorg-xinit lightdm lightdm-gtk-greeter i3lock
 systemctl enable lightdm.service
 
 pacman -S --noconfirm nix git
