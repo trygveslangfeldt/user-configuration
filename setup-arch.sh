@@ -60,6 +60,8 @@ systemctl enable lightdm.service
 pacman -S --noconfirm nix git
 gpasswd -a ${username_arg} nix-users
 systemctl enable nix-daemon.service
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+nix-channel --update
 
 mkdir -p /usr/share/xsessions
 cat <<EOF > /usr/share/xsessions/nix-i3.desktop
