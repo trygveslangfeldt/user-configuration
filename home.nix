@@ -22,6 +22,7 @@ in
   home.packages = [
     pkgs.coreutils
     pkgs.which
+    pkgs.strace
     pkgs.liberation_ttf
     pkgs.ripgrep
 
@@ -73,6 +74,7 @@ in
 
   imports = [
     ./modules/programs/bash.nix
+    ./modules/programs/browser.nix
     ./modules/programs/console.nix
     ./modules/programs/dev.nix
     ./modules/programs/vim.nix
