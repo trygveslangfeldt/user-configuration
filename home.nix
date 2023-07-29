@@ -24,6 +24,7 @@ in
     pkgs.which
     pkgs.strace
     pkgs.liberation_ttf
+    pkgs.dejavu_fonts
     pkgs.ripgrep
     pkgs.bat
 
