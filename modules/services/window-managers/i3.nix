@@ -20,12 +20,11 @@ let
   ws12 = "12:share";
   mon1 = "eDP-1";
 in {
-  # imports = [
-    # ./../../programs/conky/conky.nix
-  # ];
+  imports = [
+    ./../../programs/rofi.nix
+  ];
 
   home.packages = [
-    pkgs.rofi
     pkgs.scrot
     pkgs.i3status-rust
     pkgs.xxkb
