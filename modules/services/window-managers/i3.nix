@@ -48,7 +48,9 @@ in {
           }
           {
             block = "memory";
-            format = " $icon $mem_total_used_percents.eng(w:2) ";
+            format = " $icon $mem_used_percents ";
+            warning_mem = 70;
+            critical_mem = 90;
           }
           {
             block = "disk_space";
@@ -103,11 +105,12 @@ in {
             block = "battery";
             device = "BAT0";
             model = "DELL M59JH18";
+            full_format = " $icon 100% ";
           }
           {
             block = "time";
             interval = 5;
-            format = " $timestamp.datetime(f:'%a %d/%m %R') ";
+            format = " $timestamp.datetime(f:'%a %d/%m/%y %H:%M:%S') ";
           }
         ];
 
@@ -319,7 +322,7 @@ in {
               size = 11.0;
             };
             statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.home.homeDirectory}/.config/i3status-rust/config-custom.toml";
-            command = "${pkgs.i3}/bin/i3bar --transparency";
+            command = "${pkgs.i3}/bin/i3bar";
             mode = "dock";
             hiddenState = "show";
             trayOutput = "${mon1}";
