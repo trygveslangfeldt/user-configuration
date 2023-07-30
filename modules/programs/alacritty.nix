@@ -56,14 +56,14 @@
         # vi_mode_style = "Underline";
       # };
 
-      # key_bindings = [
-        # { key = "Return"; mods = "Control|Super"; action = "SpawnNewInstance"; }
-        # { key = "Escape"; mods = "Alt"; action = "ToggleViMode"; }
-        # { key = "Semicolon"; mode = "Vi"; action = "Right"; }
-        # { key = "L"; mode = "Vi"; action = "Up"; }
-        # { key = "K"; mode = "Vi"; action = "Down"; }
-        # { key = "J"; mode = "Vi"; action = "Left"; }
-      # ];
+      key_bindings = [
+        { key = "T"; mods = "Control|Shift"; action = "SpawnNewInstance"; }
+        { key = "Escape"; mods = "Alt"; action = "ToggleViMode"; }
+        { key = "H"; mode = "Vi"; action = "Left"; }
+        { key = "J"; mode = "Vi"; action = "Down"; }
+        { key = "K"; mode = "Vi"; action = "Up"; }
+        { key = "L"; mode = "Vi"; action = "Right"; }
+      ];
 
       env = {
         # Better color support in some apps
