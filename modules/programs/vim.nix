@@ -8,6 +8,7 @@
     defaultEditor = true;
     plugins = [
        pkgs.vimPlugins.molokai
+       pkgs.vimPlugins.vim-code-dark
        pkgs.vimPlugins.nerdtree
        pkgs.vimPlugins.nerdcommenter
        pkgs.vimPlugins.vim-nerdtree-tabs
@@ -84,7 +85,7 @@
 
       let g:molokai_original = 1
       let g:rehash256 = 1
-      colorscheme molokai
+      colorscheme codedark
 
       au InsertLeave * if pumvisible() == 0|silent! pclose|endif
       set completeopt=menuone,menu,longest
