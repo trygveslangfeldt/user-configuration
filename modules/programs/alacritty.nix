@@ -2,8 +2,9 @@
 
 {
   home.packages = [
-    (pkgs.writeShellScriptBin "nix-alacritty" ''
-      nix run --impure github:guibou/nixGL -- ${pkgs.alacritty}/bin/alacritty
+    pkgs.nixgl.nixGLIntel
+    (pkgs.writeShellScriptBin "nixgl-alacritty" ''
+      ${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel -- ${pkgs.alacritty}/bin/alacritty
     '')
   ];
 
@@ -74,6 +75,6 @@
   };
 
   home.sessionVariables = {
-    TERMINAL = "nix-alacritty";
+    TERMINAL = "nixgl-alacritty";
   };
 }
