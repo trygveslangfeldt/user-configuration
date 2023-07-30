@@ -25,6 +25,7 @@ in
     pkgs.strace
     pkgs.liberation_ttf
     pkgs.dejavu_fonts
+    pkgs.font-awesome
     pkgs.ripgrep
     pkgs.bat
 
