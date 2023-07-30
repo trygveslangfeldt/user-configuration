@@ -144,12 +144,12 @@ in {
           ];
         };
         gaps = {
-          inner = 4;
+          inner = 6;
 
           smartBorders = "on";
           smartGaps = true;
 
-          outer = -2;
+          outer = 2;
         };
         assigns = {
           "${ws6}" = [
