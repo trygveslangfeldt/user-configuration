@@ -77,14 +77,14 @@ pacman -S --noconfirm pavucontrol pulseaudio pulseaudio-alsa
 pacman -S --noconfirm telegram-desktop discord
 
 mkdir -p /usr/share/xsessions
-cat <<EOF > /usr/share/xsessions/nix-i3.desktop
+cat <<EOF > /usr/share/xsessions/i3.desktop
 [Desktop Entry]
-Name=nix-i3
+Name=i3
 Comment=improved dynamic tiling window manager
 Exec=/home/msvetkin/.nix-profile/bin/i3-session-target
 Type=Application
-X-LightDM-DesktopName=nix-i3
-DesktopNames=nix-i3
+X-LightDM-DesktopName=i3
+DesktopNames=i3
 Keywords=tiling;wm;windowmanager;window;manager;
 EOF
 
