@@ -144,6 +144,14 @@ in {
             { "class" = "QtQmlViewer"; }
           ];
         };
+        gaps = {
+          inner = 4;
+
+          smartBorders = "on";
+          smartGaps = true;
+
+          outer = -2;
+        };
         assigns = {
           "${ws6}" = [
             { class = "^TelegramDesktop$"; }
