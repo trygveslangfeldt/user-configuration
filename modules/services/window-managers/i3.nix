@@ -29,6 +29,7 @@ in {
     pkgs.scrot
     pkgs.i3status-rust
     pkgs.xxkb
+    pkgs.variety
 
     # exec command for lightdm /usr/share/xsessions/nix-i3.desktop
     # empty because lightdm source .xprofile which starts i3
@@ -143,16 +144,16 @@ in {
             { "class" = "QtQmlViewer"; }
           ];
         };
-        # assings = {
-          # "${ws6}" = [
-            # { class = "^TelegramDesktop$"; }
-            # { class = "^Slack$"; }
-            # { class = "^Discord$"; }
-          # ];
-          # "${ws9}" = [
-            # { class = "^Pavucontrol$"; }
-          # ];
-        # };
+        assigns = {
+          "${ws6}" = [
+            { class = "^TelegramDesktop$"; }
+            { class = "^Slack$"; }
+            { class = "^Discord$"; }
+          ];
+          "${ws9}" = [
+            { class = "^Pavucontrol$"; }
+          ];
+        };
         keybindings = {
           "${mod}+Shift+space" = "floating toggle";
           "${mod}+space" = "focus mode_toggle";
@@ -311,6 +312,7 @@ in {
               size = 11.0;
             };
             statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.home.homeDirectory}/.config/i3status-rust/config-custom.toml";
+            command = "${pkgs.i3}/bin/i3bar --transparency";
             mode = "dock";
             hiddenState = "show";
             trayOutput = "${mon1}";
@@ -352,6 +354,7 @@ in {
         startup = [
           { command = "xxkb"; notification = false; }
           { command = "xset b off"; notification = false; }
+          { command = "sleep 10s && ${pkgs.variety}/bin/variety --next"; notification = false; }
           { command = "xfce4-power-manager"; notification = false; }
           { command = "xfce4-power-manager-setting"; notification = false; }
         ];
