@@ -6,6 +6,10 @@ let
   mod = "Mod4";
   alt = "Mod1";
   mode_system = "System (l) lock, (e) exit, (s) suspend, (h) hibernate, (r) reboot, (S) Shutdown";
+  workspaces = import ./workspace-config.nix {
+    inherit lib;
+    displays = ["eDP-1"];
+  };
   ws1 = "1:chromium";
   ws2 = "2:console";
   ws3 = "3:gvim";
@@ -128,18 +132,18 @@ in {
           "${mod}+${alt}+o" = "layout toggle split";
 
           "Ctrl+b" = "workspace back_and_forth";
-          "Ctrl+F1" = "workspace ${ws1}, move workspace to output ${mon1}";
-          "Ctrl+F2" = "workspace ${ws2}, move workspace to output ${mon1}";
-          "Ctrl+F3" = "workspace ${ws3}, move workspace to output ${mon1}";
-          "Ctrl+F4" = "workspace ${ws4}, move workspace to output ${mon1}";
-          "Ctrl+F5" = "workspace ${ws5}, move workspace to output ${mon1}";
-          "Ctrl+F6" = "workspace ${ws6}, move workspace to output ${mon1}";
-          "Ctrl+F7" = "workspace ${ws7}, move workspace to output ${mon1}";
-          "Ctrl+F8" = "workspace ${ws8}, move workspace to output ${mon1}";
-          "Ctrl+F9" = "workspace ${ws9}, move workspace to output ${mon1}";
-          "Ctrl+F10" = "workspace ${ws10}, move workspace to output ${mon1}";
-          "Ctrl+F11" = "workspace ${ws11}, move workspace to output ${mon1}";
-          "Ctrl+F12" = "workspace ${ws12}, move workspace to output ${mon1}";
+          "Ctrl+F1" = "workspace ${ws1}";
+          "Ctrl+F2" = "workspace ${ws2}";
+          "Ctrl+F3" = "workspace ${ws3}";
+          "Ctrl+F4" = "workspace ${ws4}";
+          "Ctrl+F5" = "workspace ${ws5}";
+          "Ctrl+F6" = "workspace ${ws6}";
+          "Ctrl+F7" = "workspace ${ws7}";
+          "Ctrl+F8" = "workspace ${ws8}";
+          "Ctrl+F9" = "workspace ${ws9}";
+          "Ctrl+F10" = "workspace ${ws10}";
+          "Ctrl+F11" = "workspace ${ws11}";
+          "Ctrl+F12" = "workspace ${ws12}";
 
           "${mod}+F1" = "move container to workspace ${ws1}";
           "${mod}+F2" = "move container to workspace ${ws2}";
@@ -180,56 +184,8 @@ in {
             "Escape" = "mode \"default\"";
           };
         };
-        workspaceOutputAssign = lib.mkOptionDefault [
-          {
-            workspace = "${ws1}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws2}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws3}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws4}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws5}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws6}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws7}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws8}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws9}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws10}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws11}";
-            output = "${mon1}";
-          }
-          {
-            workspace = "${ws12}";
-            output = "${mon1}";
-          }
-        ];
+
+        workspaceOutputAssign = lib.mkOptionDefault workspaces;
 
         bars = [
           {
