@@ -22,11 +22,8 @@ let
   ];
 
   templates = builtins.genList (i: {
-    # name = "ws" + (toString (i + 1));
-    # value = {
-      workspace = builtins.elemAt names i;
-      output = "";
-    # };
+    workspace = builtins.elemAt names i;
+    output = "";
   }) (builtins.length names);
 
   displayCount = builtins.length displays;
