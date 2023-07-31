@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, isLaptop, ... }:
 let
 
 in {
@@ -36,12 +36,13 @@ in {
             alert = 6.0;
             format = " $path - $available ";
           }
+        ] ++ (if isLaptop then [
           {
             block = "battery";
-            device = "BAT0";
-            model = "DELL M59JH18";
             full_format = " $icon 100% ";
           }
+        ] else []) ++
+        [
           {
             block = "time";
             interval = 5;

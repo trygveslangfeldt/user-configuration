@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, username, configuration, ... }:
 let
   currentFilePath = builtins.currentSystem;
 in
@@ -40,11 +40,11 @@ in
     # # environment:
     (pkgs.writeShellScriptBin "home-manager-switch" ''
       home-manager switch \
-        --flake ~/code/github/user-configuration#${config.home.username}
+        --flake ~/code/github/user-configuration#${configuration}
     '')
     (pkgs.writeShellScriptBin "home-manager-build" ''
       home-manager build \
-        --flake ~/code/github/user-configuration#${config.home.username}
+        --flake ~/code/github/user-configuration#${configuration}
     '')
   ];
 

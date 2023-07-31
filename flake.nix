@@ -16,18 +16,17 @@
         overlays = [ nixgl.overlay ];
       };
     in {
-      homeConfigurations.msvetkin = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.laptop = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [ ./home.nix ];
-	extraSpecialArgs = {
+	      extraSpecialArgs = {
           username = "msvetkin";
+          configuration = "laptop";
+          isLaptop = true;
         };
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }
