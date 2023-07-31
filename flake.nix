@@ -26,6 +26,7 @@
           username = "msvetkin";
           configuration = "laptop";
           isLaptop = true;
+          displays = [ "eDP-1" ];
         };
       };
     };

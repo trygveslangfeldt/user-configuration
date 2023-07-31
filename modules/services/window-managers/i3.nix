@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, displays, ... }:
 
 with lib;
 
@@ -8,7 +8,7 @@ let
   mode_system = "System (l) lock, (e) exit, (s) suspend, (h) hibernate, (r) reboot, (S) Shutdown";
   workspaces = import ./workspace-config.nix {
     inherit lib;
-    displays = ["eDP-1"];
+    displays = displays;
   };
   ws1 = "1:chromium";
   ws2 = "2:console";
