@@ -40,6 +40,7 @@ in {
   home.packages = [
     pkgs.scrot
     pkgs.xxkb
+    pkgs.feh
 
     # exec command for lightdm /usr/share/xsessions/nix-i3.desktop
     # empty because lightdm source .xprofile which starts i3
