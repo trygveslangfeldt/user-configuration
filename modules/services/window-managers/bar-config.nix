@@ -9,7 +9,7 @@ let
     command = "${pkgs.i3}/bin/i3bar";
     mode = "dock";
     hiddenState = "show";
-    trayOutput = "";
+    trayOutput = "primary";
     workspaceButtons = true;
     position = "top";
     colors = {
@@ -45,5 +45,5 @@ let
   };
 in
   builtins.genList (i: bar // {
-    trayOutput = builtins.elemAt displays i;
+    extraConfig = "output " + builtins.elemAt displays i;
   }) (builtins.length displays)
