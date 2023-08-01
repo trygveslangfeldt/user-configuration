@@ -34,12 +34,12 @@ in {
   imports = [
     ./../../programs/rofi.nix
     ./../../programs/i3status-rust.nix
+    ./../../programs/variety/variety.nix
   ];
 
   home.packages = [
     pkgs.scrot
     pkgs.xxkb
-    pkgs.variety
 
     # exec command for lightdm /usr/share/xsessions/nix-i3.desktop
     # empty because lightdm source .xprofile which starts i3
