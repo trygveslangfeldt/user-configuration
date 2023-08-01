@@ -48,7 +48,7 @@ in
       display = builtins.elemAt displays 0;
     }) ++
     (setDisplay {
-      workspaces = lib.lists.sublist 3 5 templates;
+      workspaces = lib.lists.sublist 3 2 templates;
       display = builtins.elemAt displays 1;
     }) ++
     (setDisplay {
