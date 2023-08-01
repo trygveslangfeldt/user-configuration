@@ -11,7 +11,7 @@ let
     displays = displays;
   };
   workspaceForChats = (builtins.elemAt workspaces 6).workspace;
-  workspaceForAudio = (builtins.elemAt workspaces 9).workspace;
+  workspaceForAudio = (builtins.elemAt workspaces 10).workspace;
 
   bars = import ./bar-config.nix {
     inherit config;

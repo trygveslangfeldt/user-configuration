@@ -7,18 +7,18 @@ let
     ws;
 
   names = [
-    "1:chromium"
+    "1:browser"
     "2:console"
     "3:gvim"
-    "4:gvim"
-    "5:console"
-    "6:message"
-    "7:chromium"
+    "4:ide"
+    "5:ide"
+    "6:browser"
+    "7:chats"
     "8:console"
-    "9:ssh"
-    "10:email"
-    "11:share"
-    "12:share"
+    "9:browser"
+    "10:audio"
+    "11:other"
+    "12:other"
   ];
 
   templates = builtins.genList (i: {
@@ -48,11 +48,11 @@ in
       display = builtins.elemAt displays 0;
     }) ++
     (setDisplay {
-      workspaces = lib.lists.sublist 3 2 templates;
+      workspaces = lib.lists.sublist 3 3 templates;
       display = builtins.elemAt displays 1;
     }) ++
     (setDisplay {
-      workspaces = lib.lists.sublist 5 7 templates;
+      workspaces = lib.lists.sublist 6 6 templates;
       display = builtins.elemAt displays 2;
     })
   else
