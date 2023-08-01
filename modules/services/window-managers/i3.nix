@@ -10,6 +10,8 @@ let
     inherit lib;
     displays = displays;
   };
+  workspaceForChats = (builtins.elemAt workspaces 6).workspace;
+  workspaceForAudio = (builtins.elemAt workspaces 9).workspace;
 
   bars = import ./bar-config.nix {
     inherit config;
@@ -17,19 +19,6 @@ let
     displays = displays;
   };
 
-  ws1 = "1:chromium";
-  ws2 = "2:console";
-  ws3 = "3:gvim";
-  ws4 = "4:gvim";
-  ws5 = "5:console";
-  ws6 = "6:message";
-  ws7 = "7:chromium";
-  ws8 = "8:console";
-  ws9 = "9:ssh";
-  ws10 = "10:email";
-  ws11 = "11:share";
-  ws12 = "12:share";
-  mon1 = "eDP-1";
 in {
   imports = [
     ./../../programs/rofi.nix
@@ -83,12 +72,12 @@ in {
           outer = 2;
         };
         assigns = {
-          "${ws6}" = [
+          "${workspaceForChats}" = [
             { class = "^TelegramDesktop$"; }
             { class = "^Slack$"; }
             { class = "^Discord$"; }
           ];
-          "${ws9}" = [
+          "${workspaceForAudio}" = [
             { class = "^Pavucontrol$"; }
           ];
         };
@@ -140,45 +129,23 @@ in {
           "${mod}+${alt}+o" = "layout toggle split";
 
           "Ctrl+b" = "workspace back_and_forth";
-          "Ctrl+F1" = "workspace ${ws1}";
-          "Ctrl+F2" = "workspace ${ws2}";
-          "Ctrl+F3" = "workspace ${ws3}";
-          "Ctrl+F4" = "workspace ${ws4}";
-          "Ctrl+F5" = "workspace ${ws5}";
-          "Ctrl+F6" = "workspace ${ws6}";
-          "Ctrl+F7" = "workspace ${ws7}";
-          "Ctrl+F8" = "workspace ${ws8}";
-          "Ctrl+F9" = "workspace ${ws9}";
-          "Ctrl+F10" = "workspace ${ws10}";
-          "Ctrl+F11" = "workspace ${ws11}";
-          "Ctrl+F12" = "workspace ${ws12}";
+        } //
 
-          "${mod}+F1" = "move container to workspace ${ws1}";
-          "${mod}+F2" = "move container to workspace ${ws2}";
-          "${mod}+F3" = "move container to workspace ${ws3}";
-          "${mod}+F4" = "move container to workspace ${ws4}";
-          "${mod}+F5" = "move container to workspace ${ws5}";
-          "${mod}+F6" = "move container to workspace ${ws6}";
-          "${mod}+F7" = "move container to workspace ${ws7}";
-          "${mod}+F8" = "move container to workspace ${ws8}";
-          "${mod}+F9" = "move container to workspace ${ws9}";
-          "${mod}+F10" = "move container to workspace ${ws10}";
-          "${mod}+F11" = "move container to workspace ${ws11}";
-          "${mod}+F12" = "move container to workspace ${ws12}";
+        builtins.listToAttrs (builtins.genList (i: {
+          name = "Ctrl+F" +  toString (i + 1);
+          value = "workspace " + (builtins.elemAt workspaces i).workspace;
+        }) (builtins.length workspaces)) //
 
-          "${mod}+Ctrl+F1" = "move container to workspace ${ws1}, workspace ${ws1}";
-          "${mod}+Ctrl+F2" = "move container to workspace ${ws2}, workspace ${ws2}";
-          "${mod}+Ctrl+F3" = "move container to workspace ${ws3}, workspace ${ws3}";
-          "${mod}+Ctrl+F4" = "move container to workspace ${ws4}, workspace ${ws4}";
-          "${mod}+Ctrl+F5" = "move container to workspace ${ws5}, workspace ${ws5}";
-          "${mod}+Ctrl+F6" = "move container to workspace ${ws6}, workspace ${ws6}";
-          "${mod}+Ctrl+F7" = "move container to workspace ${ws7}, workspace ${ws7}";
-          "${mod}+Ctrl+F8" = "move container to workspace ${ws8}, workspace ${ws8}";
-          "${mod}+Ctrl+F9" = "move container to workspace ${ws9}, workspace ${ws9}";
-          "${mod}+Ctrl+F10" = "move container to workspace ${ws10}, workspace ${ws10}";
-          "${mod}+Ctrl+F11" = "move container to workspace ${ws11}, workspace ${ws11}";
-          "${mod}+Ctrl+F12" = "move container to workspace ${ws12}, workspace ${ws12}";
-        };
+        builtins.listToAttrs (builtins.genList (i: {
+          name = "${mod}+F" +  toString (i + 1);
+          value = "move container to workspace " + (builtins.elemAt workspaces i).workspace;
+        }) (builtins.length workspaces)) //
+
+        builtins.listToAttrs (builtins.genList (i: {
+          name = "${mod}+Ctrl+F" +  toString (i + 1);
+          value = "move container to workspace" + (builtins.elemAt workspaces i).workspace + ", workspace " + (builtins.elemAt workspaces i).workspace;
+        }) (builtins.length workspaces));
+
         modes = {
           resize = {};
           "${mode_system}" = {
