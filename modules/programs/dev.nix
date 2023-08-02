@@ -14,7 +14,11 @@
     (lowPrio pkgs.clang_16)
     pkg-config
     patchelf
+    virtualenv
+    python3
     rustup
     valgrind
+    zip
+    unzip
   ];
 }
