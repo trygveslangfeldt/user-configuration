@@ -24,7 +24,7 @@
     # };
 
     fade = true;
-    fadeDelta = 18;
+    fadeDelta = 14;
     fadeSteps = [ 0.08 0.08 ];
 
     inactiveOpacity = 0.95;
