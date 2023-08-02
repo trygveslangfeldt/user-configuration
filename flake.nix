@@ -14,6 +14,10 @@
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         overlays = [ nixgl.overlay ];
+        # config.allowUnfreePredicate = pkg:
+          # builtins.elem (pkgs.lib.getName pkg) [
+            # "slack"
+          # ];
       };
     in {
       homeConfigurations.laptop = home-manager.lib.homeManagerConfiguration {
