@@ -5,7 +5,7 @@
     pkgs.variety
   ];
 
-  home.file = {
-    "variety.conf".source = ./variety.conf;
+  xdg.configFile = {
+    "variety/variety.conf".source = ./variety.conf;
   };
 }
