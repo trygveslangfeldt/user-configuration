@@ -18,5 +18,6 @@
       enable = true;
       background = "dark";
     };
+    lfs.enable = true;
   };
 }
