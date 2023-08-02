@@ -41,9 +41,9 @@
     hooks = {
       postswitch = {
         notify-i3 = "${pkgs.i3}/bin/i3-msg restart";
-        # change-background = readFile ./change-background.sh;
+        #change-background = "${pkgs.variety}/bin/variety --next";
         change-dpi = ''
-          case "$AUTORANDR_CURRENT_PROFILE" in
+          case "$(hostname)" in
             default)
               DPI=96
               ;;
@@ -51,11 +51,11 @@
               DPI=144
               ;;
             *)
-              echo "Unknown profile: $AUTORANDR_CURRENT_PROFILE"
+              echo "Unknown profile for host: $(hostname)"
               exit 1
           esac
 
-          echo "Xft.dpi: $DPI" | ''${pkgs.xorg.xrdb}/bin/xrdb -merge
+          echo "Xft.dpi: $DPI" | xrdb -merge
         '';
       };
     };

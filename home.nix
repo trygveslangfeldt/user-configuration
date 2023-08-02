@@ -28,7 +28,7 @@ in
     pkgs.font-awesome
     pkgs.ripgrep
     pkgs.bat
-    # pkgs.slack
+    pkgs.hostname
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
