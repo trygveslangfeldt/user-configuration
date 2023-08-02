@@ -29,5 +29,19 @@
           displays = [ "eDP-1" ];
         };
       };
+
+      homeConfigurations.desktop = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [ ./home.nix ];
+	      extraSpecialArgs = {
+          username = "trilla";
+          configuration = "desktop";
+          isLaptop = false;
+          displays = [ "HDMI-0" "DP-0" ];
+        };
+      };
     };
 }
