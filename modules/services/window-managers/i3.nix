@@ -21,6 +21,7 @@ let
 
 in {
   imports = [
+    ./../../programs/autorandr.nix
     ./../../programs/rofi.nix
     ./../../programs/i3status-rust.nix
     ./../../programs/variety/variety.nix
