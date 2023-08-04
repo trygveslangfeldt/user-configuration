@@ -113,5 +113,6 @@ in
     ./modules/programs/dircolors.nix
     ./modules/services/window-managers/i3.nix
     ./modules/services/picom.nix
+    ./modules/misc/gtk.nix
   ];
 }
