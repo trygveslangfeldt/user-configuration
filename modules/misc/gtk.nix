@@ -8,6 +8,10 @@
         package = pkgs.gnome.gnome-themes-extra;
         name = "Adwaita:dark";
       };
+      font = {
+        name = "DejaVy Sans";
+        size = 11;
+      };
     };
 
     home = {
