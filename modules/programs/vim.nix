@@ -16,6 +16,31 @@ let
         let g:cpp_member_highlight = 1
       '';
     };
+    ctrlsf = pkgs.vimUtils.buildVimPluginFrom2Nix {
+      name = "ctrlsf";
+      src = pkgs.fetchFromGitHub {
+        owner = "dyng";
+        repo = "ctrlsf.vim";
+        rev = "32236a8b376d9311dec9b5fe795ca99d32060b13";
+        hash = "sha256-td8eE5t1t5xBAxYq19U5fQXMXS1ZIxAzl2Q6nsIRR6Q=";
+      };
+      extraConfig = ''
+        let g:ctrlsf_search_mode = 'async'
+        let g:ctrlsf_default_view_mode = 'compact'
+        let g:ctrlsf_auto_focus = {
+              \ "at": "done",
+              \ "duration_less_than": 1000
+              \ }
+        nmap     <C-F>f <Plug>CtrlSFPrompt
+        vmap     <C-F>f <Plug>CtrlSFVwordPath
+        vmap     <C-F>F <Plug>CtrlSFVwordExec
+        nmap     <C-F>n <Plug>CtrlSFCwordPath
+        nmap     <C-F>p <Plug>CtrlSFPwordPath
+        nnoremap <C-F>o :CtrlSFOpen<CR>
+        nnoremap <C-F>t :CtrlSFToggle<CR>
+        inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+      '';
+    };
   };
 
   pluginsExtraConfig = builtins.concatStringsSep "\n" (
@@ -227,18 +252,6 @@ in
 
       let g:ctrlp_key_loop=1
       let g:ctrlp_max_files=2000000
-
-      let g:ctrlsf_search_mode = 'async'
-      let g:ctrlsf_default_view_mode = 'compact'
-
-      nmap     <C-F>f <Plug>CtrlSFPrompt
-      vmap     <C-F>f <Plug>CtrlSFVwordPath
-      vmap     <C-F>F <Plug>CtrlSFVwordExec
-      nmap     <C-F>n <Plug>CtrlSFCwordPath
-      nmap     <C-F>p <Plug>CtrlSFPwordPath
-      nnoremap <C-F>o :CtrlSFOpen<CR>
-      nnoremap <C-F>t :CtrlSFToggle<CR>
-      inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
       nnoremap <silent> <C-p> :GFiles<CR>
       nnoremap <silent> <C-f> :Files<CR>
