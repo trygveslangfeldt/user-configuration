@@ -41,6 +41,22 @@ let
         inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
       '';
     };
+    vim-fswitch = pkgs.vimUtils.buildVimPluginFrom2Nix {
+      name = "vim-fswitch";
+      src = pkgs.fetchFromGitHub {
+        owner = "derekwyatt";
+        repo = "vim-fswitch";
+        rev = "94acdd8bc92458d3bf7e6557df8d93b533564491";
+        hash = "sha256-LMNptjApgqBd7RMyKEWG/bQ2ahtglKr5Rf3LuDge044=";
+      };
+      extraConfig = ''
+        augroup mycppfiles
+          au!
+          au BufEnter *.h let b:fswitchdst  = 'cpp,cc,C'
+          au BufEnter *.h let b:fswitchlocs = 'reg:/include/src/,reg:/include.*/src/'
+        augroup END
+      '';
+    };
   };
 
   pluginsExtraConfig = builtins.concatStringsSep "\n" (
@@ -63,7 +79,6 @@ in
        pkgs.vimPlugins.vim-airline-themes
        pkgs.vimPlugins.vim-easy-align
        pkgs.vimPlugins.fzf-vim
-       #pkgs.vimPlugins.vim-fswitch
        pkgs.vimPlugins.vim-indent-object
        pkgs.vimPlugins.vim-multiple-cursors
        pkgs.vimPlugins.python-mode
@@ -255,8 +270,6 @@ in
 
       nnoremap <silent> <C-p> :GFiles<CR>
       nnoremap <silent> <C-f> :Files<CR>
-
-      let b:fswitchlocs = '../src,../source'
     '' + pluginsExtraConfig;
   };
 }
