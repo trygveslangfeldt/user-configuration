@@ -1,5 +1,27 @@
 { config, pkgs, ... }:
 
+let
+  plugins = {
+    vim-cpp-modern = pkgs.vimUtils.buildVimPluginFrom2Nix {
+      name = "vim-cpp-modern";
+      src = pkgs.fetchFromGitHub {
+        owner = "bfrg";
+        repo = "vim-cpp-modern";
+        rev = "0f0529bf2a336a4e824a26b733220548d32697a6";
+        hash = "sha256-TseU3nW891sCYcjejkuAJDXf2zBl4W6eG+IoPifbVBY=";
+      };
+      extraConfig = ''
+        let g:cpp_class_scope_highlight = 1
+        let g:cpp_attributes_highlight = 1
+        let g:cpp_member_highlight = 1
+      '';
+    };
+  };
+
+  pluginsExtraConfig = builtins.concatStringsSep "\n" (
+    builtins.map (item: item.extraConfig) (builtins.attrValues plugins)
+  );
+in
 {
   programs.fzf.enable = true;
 
@@ -16,7 +38,6 @@
        pkgs.vimPlugins.vim-airline-themes
        pkgs.vimPlugins.vim-easy-align
        pkgs.vimPlugins.fzf-vim
-       #pkgs.vimPlugins.ctrlsf-vim
        #pkgs.vimPlugins.vim-fswitch
        pkgs.vimPlugins.vim-indent-object
        pkgs.vimPlugins.vim-multiple-cursors
@@ -34,7 +55,8 @@
        pkgs.vimPlugins.ale
        pkgs.vimPlugins.vim-toml
        pkgs.vimPlugins.vim-nix
-    ];
+       plugins.vim-cpp-modern
+    ] ++ builtins.attrValues plugins;
     extraConfig = ''
       set autoindent
       set smartindent
@@ -166,8 +188,6 @@
       let g:UltiSnipsJumpForwardTrigger = "<c-tab>"
       let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-      let g:cpp_class_scope_highlight = 1
-
       let g:alternateRelativeFiles = 1
       let g:alternativeAlwaysCreateBuffer = 1
 
@@ -224,6 +244,6 @@
       nnoremap <silent> <C-f> :Files<CR>
 
       let b:fswitchlocs = '../src,../source'
-    '';
+    '' + pluginsExtraConfig;
   };
 }
