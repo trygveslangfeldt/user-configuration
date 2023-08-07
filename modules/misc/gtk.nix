@@ -16,10 +16,11 @@
 
     home = {
       packages = [
-        pkgs.libcanberra
+        pkgs.libcanberra-gtk3
       ];
       sessionVariables = {
         GTK_THEME = "${config.gtk.theme.name}";
+        GTK_PATH = "${pkgs.libcanberra-gtk3}/lib/gtk-3.0\${GTK_PATH:+:\$GTK_PATH}";
       };
     };
   };
