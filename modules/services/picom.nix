@@ -42,8 +42,8 @@
     opacityRules = [
       "0:_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
       "100:class_i = 'i3lock'"
-      "95:class_g = 'Alacritty' && focused"
-      "65:class_g = 'Alacritty' && !focused"
+      "95:class_g = 'org.wezfurlong.wezterm' && focused"
+      "85:class_g = 'org.wezfurlong.wezterm' && !focused"
       "95:class_g = 'Gvim' && !focused"
     ];
   };
