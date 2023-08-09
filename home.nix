@@ -23,8 +23,8 @@ in
     pkgs.coreutils
     pkgs.which
     pkgs.strace
-    pkgs.liberation_ttf
     pkgs.dejavu_fonts
+    pkgs.liberation_ttf
     pkgs.font-awesome
     pkgs.ripgrep
     pkgs.bat
