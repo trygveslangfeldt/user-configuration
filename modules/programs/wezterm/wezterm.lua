@@ -11,6 +11,7 @@ config.audible_bell = "Disabled"
 
 config.show_new_tab_button_in_tab_bar = false
 config.show_tab_index_in_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 
 config.font = wezterm.font 'Liberation Mono'
 config.font_size = 11
