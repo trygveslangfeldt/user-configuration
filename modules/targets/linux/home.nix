@@ -108,7 +108,7 @@ in
     ../../programs/browser.nix
     ../../programs/console.nix
     ../../programs/dev.nix
-    ../../programs/vim.nix
+    ../../programs/vim
     ../../programs/git.nix
     ../../programs/ssh.nix
     ../../programs/dircolors.nix
