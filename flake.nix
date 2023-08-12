@@ -7,9 +7,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:guibou/nixGL";
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nixgl, ... }:
+  outputs = { nixpkgs, home-manager, nixgl, darwin, ... }:
     let
       username = "trilla";
 
@@ -19,7 +23,14 @@
         inherit home-manager;
         inherit username;
       };
+      darwinConfgs = import modules/targets/darwin {
+        inherit nixpkgs;
+        inherit home-manager;
+        inherit darwin;
+        inherit username;
+      };
     in {
       homeConfigurations = linuxConfigs;
+      darwinConfigurations = darwinConfgs;
     };
-}
+  }

@@ -4,8 +4,7 @@ let
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "${username}";
+  # manage. home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
   # The home.packages option allows you to install Nix packages into your
@@ -62,6 +61,25 @@ in
   };
 
   targets.genericLinux.enable = true;
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html"= [ "google-chrome.desktop" ];
+      "x-scheme-handler/http"= [ "google-chrome.desktop" ];
+      "x-scheme-handler/https"= [ "google-chrome.desktop" ];
+      "x-scheme-handler/about"= [ "google-chrome.desktop" ];
+      "x-scheme-handler/unknown"= [ "google-chrome.desktop" ];
+      "x-scheme-handler/tg"= [ "org.telegram.desktop.desktop" ];
+    };
+
+    associations = {
+      added = {
+        "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+      };
+    };
+  };
+
 
   imports = [
     ../common.nix
