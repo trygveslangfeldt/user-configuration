@@ -104,16 +104,16 @@ in
   };
 
   imports = [
-    ./modules/programs/shell.nix
-    ./modules/programs/browser.nix
-    ./modules/programs/console.nix
-    ./modules/programs/dev.nix
-    ./modules/programs/vim.nix
-    ./modules/programs/git.nix
-    ./modules/programs/ssh.nix
-    ./modules/programs/dircolors.nix
-    ./modules/services/window-managers/i3.nix
-    ./modules/services/picom.nix
-    ./modules/misc/gtk.nix
+    ../../programs/shell.nix
+    ../../programs/browser.nix
+    ../../programs/console.nix
+    ../../programs/dev.nix
+    ../../programs/vim.nix
+    ../../programs/git.nix
+    ../../programs/ssh.nix
+    ../../programs/dircolors.nix
+    ../../services/window-managers/i3.nix
+    ../../services/picom.nix
+    ../../misc/gtk.nix
   ];
 }

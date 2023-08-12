@@ -11,41 +11,15 @@
 
   outputs = { nixpkgs, home-manager, nixgl, ... }:
     let
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        overlays = [ nixgl.overlay ];
-        # config.allowUnfreePredicate = pkg:
-          # builtins.elem (pkgs.lib.getName pkg) [
-            # "slack"
-          # ];
+      username = "trilla";
+
+      linuxConfigs = import ./modules/targets/linux {
+        inherit nixpkgs;
+        inherit nixgl;
+        inherit home-manager;
+        inherit username;
       };
     in {
-      homeConfigurations.laptop = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-	      extraSpecialArgs = {
-          username = "msvetkin";
-          configuration = "laptop";
-          isLaptop = true;
-          displays = [ "eDP-1" ];
-        };
-      };
-
-      homeConfigurations.desktop = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-	      extraSpecialArgs = {
-          username = "trilla";
-          configuration = "desktop";
-          isLaptop = false;
-          displays = [ "HDMI-0" "DP-0" ];
-        };
-      };
+      homeConfigurations = linuxConfigs;
     };
 }
