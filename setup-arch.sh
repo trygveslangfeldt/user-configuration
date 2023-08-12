@@ -76,6 +76,9 @@ pacman -S --noconfirm pavucontrol pulseaudio pulseaudio-alsa
 
 pacman -S --noconfirm telegram-desktop discord
 
+echo "/home/${username_arg}/.nix-profile/bin/zsh" >> /ets/shells
+chsh -s /home/${username_arg}/.nix-profile/bin/zsh ${username_arg}
+
 mkdir -p /usr/share/xsessions
 cat <<EOF > /usr/share/xsessions/i3.desktop
 [Desktop Entry]
