@@ -104,7 +104,7 @@ in
   };
 
   imports = [
-    ./modules/programs/bash.nix
+    ./modules/programs/shell.nix
     ./modules/programs/browser.nix
     ./modules/programs/console.nix
     ./modules/programs/dev.nix
