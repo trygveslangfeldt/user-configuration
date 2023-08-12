@@ -112,6 +112,7 @@ in
     ../../programs/git.nix
     ../../programs/ssh.nix
     ../../programs/dircolors.nix
+    ../../programs/fzf.nix
     ../../services/window-managers/i3.nix
     ../../services/picom.nix
     ../../misc/gtk.nix
