@@ -13,6 +13,10 @@
         enable = true;
         theme = "robbyrussell";
       };
+      initExtra = ''
+        unset PAGER
+        unset LESS
+      '';
     };
     dircolors = {
       enableZshIntegration = true;
