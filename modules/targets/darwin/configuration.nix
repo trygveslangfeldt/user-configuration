@@ -12,6 +12,8 @@ in
   # Set Git commit hash for darwin-version.
   #system.configurationRevision = self.rev or self.dirtyRev or null;
 
+  programs.zsh.enable = true;
+
   system.stateVersion = 4;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
