@@ -4,7 +4,8 @@ let
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
-  # manage. home.username = "${username}";
+  # manage.
+  home.username = "${username}";
   home.homeDirectory = "/home/${username}";
 
   # The home.packages option allows you to install Nix packages into your
