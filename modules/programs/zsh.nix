@@ -12,6 +12,10 @@
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
+        # theme = "philips";
+        plugins = [
+          "gitfast"
+        ];
       };
       initExtra = ''
         unset PAGER
