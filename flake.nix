@@ -23,7 +23,7 @@
         inherit home-manager;
         inherit username;
       };
-      darwinConfgs = import modules/targets/darwin {
+      darwinConfigs = import modules/targets/darwin {
         inherit nixpkgs;
         inherit home-manager;
         inherit darwin;
@@ -31,6 +31,6 @@
       };
     in {
       homeConfigurations = linuxConfigs;
-      darwinConfigurations = darwinConfgs;
+      darwinConfigurations = darwinConfigs;
     };
   }
