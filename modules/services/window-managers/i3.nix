@@ -96,8 +96,8 @@ in {
           "${mod}+r" = "exec --no-startup-id ${pkgs.rofi}/bin/rofi -show run -terminal i3-sensible-terminal";
           "${mod}+p" = "exec --no-startup-id ${pkgs.rofi}/bin/rofi -show window -terminal i3-sensible-terminal";
           "${mod}+s" = "exec --no-startup-id ${pkgs.rofi}/bin/rofi -show ssh -terminal i3-sensible-terminal";
-          "--release Print" = "exec ${pkgs.scrot} '%d.%m.%Y-%H:%M:%S.png' -e 'mkdir -p ~/screenshots && mv $f ~/screenshots'";
-          "--release Shift+Print" = "exec ${pkgs.scrot} -s '%d.%m.%Y-%H:%M:%S.png' -e 'mkdir -p ~/screenshots && mv $f ~/screenshots'";
+          "--release Print" = "exec ${pkgs.scrot}/bin/scrot '%d.%m.%Y-%H:%M:%S.png' -e 'mkdir -p ~/screenshots && mv $f ~/screenshots'";
+          "--release Shift+Print" = "exec ${pkgs.scrot}/bin/scrot -s '%d.%m.%Y-%H:%M:%S.png' -e 'mkdir -p ~/screenshots && mv $f ~/screenshots'";
           "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume 0 +5%";
           "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume 0 -5%";
           "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute 0 toggle";
