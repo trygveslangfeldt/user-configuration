@@ -23,6 +23,10 @@ in
 
   homebrew = {
     enable = true;
+    brews = [
+      "openjdk@17"
+      "openjdk@11"
+    ];
     #autoUpdate = true;
     #onActivation.upgrade = true;
     # updates homebrew packages on activation,
