@@ -16,5 +16,6 @@ in {
   imports = [
     ../common.nix
     ../../programs/vim/neovim.nix
+    ../../programs/messenger.nix
   ];
 }
