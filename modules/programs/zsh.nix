@@ -9,6 +9,10 @@
         ls = "ls -a --color=auto";
         ll = "ls -l";
       };
+      initExtra = ''
+        unset PAGER;
+        unset LESS;
+      '';
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
