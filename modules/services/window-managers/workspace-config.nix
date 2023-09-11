@@ -27,33 +27,10 @@ let
   }) (builtins.length names);
 
   displayCount = builtins.length displays;
+  
+  workspaceConfiguration = import ./workspaces/${configuration}.nix {
+    inherit lib names setDisplay templates;
+  };
+
 in
-  if configuration == "laptop" then
-    setDisplay {
-      workspaces = templates;
-      display = builtins.elemAt displays 0;
-    }
-  else if displayCount == 2 then
-    (setDisplay {
-      workspaces = lib.lists.sublist 0 3 templates;
-      display = builtins.elemAt displays 0;
-    }) ++
-    (setDisplay {
-      workspaces = lib.lists.sublist 3 9 templates;
-      display = builtins.elemAt displays 1;
-    })
-  else if displayCount == 3 then
-    (setDisplay {
-      workspaces = lib.lists.sublist 0 3 templates;
-      display = builtins.elemAt displays 0;
-    }) ++
-    (setDisplay {
-      workspaces = lib.lists.sublist 3 3 templates;
-      display = builtins.elemAt displays 1;
-    }) ++
-    (setDisplay {
-      workspaces = lib.lists.sublist 6 6 templates;
-      display = builtins.elemAt displays 2;
-    })
-  else
-    []
+    workspaceConfiguration
