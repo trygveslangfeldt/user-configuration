@@ -26,11 +26,11 @@ in
     # # environment:
     (pkgs.writeShellScriptBin "home-manager-switch" ''
       home-manager switch \
-        --flake ~/code/github/user-configuration#${configuration}
+        --flake ~/code/github/user-configuration#$1
     '')
     (pkgs.writeShellScriptBin "home-manager-build" ''
       home-manager build \
-        --flake ~/code/github/user-configuration#${configuration}
+        --flake ~/code/github/user-configuration#$1
     '')
   ];
 
