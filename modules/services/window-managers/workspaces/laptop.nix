@@ -1,6 +1,6 @@
 { lib, setDisplay, templates, ... }:
 let 
-    monitor = ["eDP1"];
+    monitor = "eDP-1";
 
 in
     setDisplay {

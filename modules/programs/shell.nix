@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # ./bash.nix
-    ./zsh.nix
+    ./bash.nix
+    #./zsh.nix
   ];
 }

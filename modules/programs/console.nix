@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # ./alacritty.nix
-    ./wezterm/wezterm.nix
+     ./alacritty.nix
+    #./wezterm/wezterm.nix
   ];
 }

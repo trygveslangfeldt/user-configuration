@@ -29,7 +29,7 @@ let
   displayCount = builtins.length displays;
   
   workspaceConfiguration = import ./workspaces/${configuration}.nix {
-    inherit lib names setDisplay templates;
+    inherit lib names displays setDisplay templates;
   };
 
 in
