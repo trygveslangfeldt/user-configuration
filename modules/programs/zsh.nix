@@ -21,10 +21,6 @@
           "gitfast"
         ];
       };
-      initExtra = ''
-        unset PAGER
-        unset LESS
-      '';
       plugins = [
           {
             name = "zsh-nix-shell";
