@@ -17,6 +17,18 @@ in
       displays = [ "eDP-1" ];
     };
   };
+  
+  laptopWithMonitors = home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+
+    modules = [ ./home.nix ];
+    extraSpecialArgs = {
+      username = "${username}";
+      configuration = "laptopWithMonitors";
+      isLaptop = true;
+      displays = [ "eDP-1" "DP-3-2" "DP-3-3"];
+    };
+  };
 
   desktop = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
