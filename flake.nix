@@ -15,7 +15,7 @@
 
   outputs = { nixpkgs, home-manager, nixgl, darwin, ... }:
     let
-      username = "trilla";
+      username = "trygve";
 
       linuxConfigs = import ./modules/targets/linux {
         inherit nixpkgs;
