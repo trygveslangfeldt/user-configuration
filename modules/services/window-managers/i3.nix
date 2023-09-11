@@ -1,4 +1,4 @@
-{ config, lib, pkgs, displays, ... }:
+{ config, lib, pkgs, displays, configuration, ... }:
 
 with lib;
 
@@ -7,8 +7,7 @@ let
   alt = "Mod1";
   mode_system = "System (l) lock, (e) exit, (s) suspend, (h) hibernate, (r) reboot, (S) Shutdown";
   workspaces = import ./workspace-config.nix {
-    inherit lib;
-    displays = displays;
+    inherit lib displays configuration;
   };
   workspaceForChats = (builtins.elemAt workspaces 6).workspace;
   workspaceForAudio = (builtins.elemAt workspaces 10).workspace;

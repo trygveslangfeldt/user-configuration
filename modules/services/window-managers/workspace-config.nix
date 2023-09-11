@@ -1,4 +1,4 @@
-{ lib, displays, ... } :
+{ lib, displays, configuration, ... } :
 let
   setDisplay = { workspaces, display }:
   let
@@ -28,7 +28,7 @@ let
 
   displayCount = builtins.length displays;
 in
-  if displayCount == 1 then
+  if configuration == "laptop" then
     setDisplay {
       workspaces = templates;
       display = builtins.elemAt displays 0;
