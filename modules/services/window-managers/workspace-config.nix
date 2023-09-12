@@ -15,10 +15,7 @@ let
     "6:browser"
     "7:chats"
     "8:console"
-    "9:browser"
-    "10:audio"
-    "11:other"
-    "12:other"
+    "9:audio"
   ];
 
   templates = builtins.genList (i: {
