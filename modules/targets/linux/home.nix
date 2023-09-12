@@ -56,8 +56,7 @@ in
   };
 
   home.keyboard = {
-    #layout = "us,ru";
-    layout = "us,ru,no";
+    layout = "no";
     options = [ "grp:toggle" ];
   };
 
