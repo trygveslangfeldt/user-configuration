@@ -62,7 +62,6 @@ in
 
   home.keyboard = {
     layout = "no";
-    options = [ "grp:toggle" ];
   };
 
   targets.genericLinux.enable = true;
