@@ -30,6 +30,18 @@ in
     };
   };
 
+  laptopWork = home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+
+    modules = [ ./home.nix ];
+    extraSpecialArgs = {
+      username = "${username}";
+      configuration = "laptopWork";
+      isLaptop = true;
+      displays = [ "DP-2" "DP-3"];
+    };
+  };
+
   desktop = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
 
