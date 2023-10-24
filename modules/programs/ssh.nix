@@ -14,6 +14,13 @@
       "github.com" = {
         identityFile = "~/.ssh/github.com";
       };
+      "rm" = {
+        user = "root";
+        hostname = "10.11.99.1";
+        extraOptions = {
+          UserKnownHostsFile= "/dev/null";
+        };
+      };
     };
   };
 
