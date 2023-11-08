@@ -93,5 +93,6 @@ in
     ../../services/picom.nix
     ../../misc/gtk.nix
     ../../programs/autorandr.nix
+    ../../programs/messenger.nix
   ];
 }
