@@ -62,6 +62,7 @@ in {
             { "class" = "app"; }
             { "class" = "Wine"; }
             { "class" = "QtQmlViewer"; }
+            { "class" = "xochitl"; }
           ];
         };
         gaps = {
