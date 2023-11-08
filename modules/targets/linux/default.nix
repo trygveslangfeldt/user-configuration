@@ -17,18 +17,20 @@ in
       displays = [ "eDP-1" ];
     };
   };
-  
-  laptopWithMonitors = home-manager.lib.homeManagerConfiguration {
+
+  baarch = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
 
     modules = [ ./home.nix ];
     extraSpecialArgs = {
       username = "${username}";
-      configuration = "laptopWithMonitors";
+      configuration = "baarch";
       isLaptop = true;
-      displays = [ "eDP-1" "DP-3-2" "DP-3-3"];
+      displays = [ "eDP-1" "DP-1-4" "DP-1-0"];
     };
   };
+
+
 
   laptopWork = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;

@@ -92,5 +92,6 @@ in
     ../../services/window-managers/i3.nix
     ../../services/picom.nix
     ../../misc/gtk.nix
+    ../../programs/autorandr.nix
   ];
 }
