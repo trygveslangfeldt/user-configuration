@@ -26,7 +26,7 @@ in
       username = "${username}";
       configuration = "baarch";
       isLaptop = true;
-      displays = [ "eDP-1" "DP-1-4" "DP-1-0"];
+      displays = [ "eDP-1" "DP-1-2" "DP-1-4"];
     };
   };
 
