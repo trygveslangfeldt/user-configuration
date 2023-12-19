@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     ctags
     # cmake
-    clang-tools
+    clang-tools_16
     ninja
     gdb
     gnumake
