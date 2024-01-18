@@ -18,6 +18,32 @@ in
     };
   };
 
+  baarch = home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+
+    modules = [ ./home.nix ];
+    extraSpecialArgs = {
+      username = "${username}";
+      configuration = "baarch";
+      isLaptop = true;
+      displays = [ "eDP-1" "DP-1-8" "DP-1-6-8"];
+    };
+  };
+
+
+
+  laptopWork = home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+
+    modules = [ ./home.nix ];
+    extraSpecialArgs = {
+      username = "${username}";
+      configuration = "laptopWork";
+      isLaptop = true;
+      displays = [ "DP-2" "DP-3"];
+    };
+  };
+
   desktop = home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
 

@@ -27,11 +27,16 @@ in
     (pkgs.writeShellScriptBin "home-manager-switch" ''
       home-manager switch \
         --flake ~/code/github/user-configuration#${configuration}
+     '')
+     (pkgs.writeShellScriptBin "home-manager-build" ''
+       home-manager build \
+         --flake ~/code/github/user-configuration#${configuration}
     '')
-    (pkgs.writeShellScriptBin "home-manager-build" ''
-      home-manager build \
-        --flake ~/code/github/user-configuration#${configuration}
-    '')
+    (pkgs.writeShellScriptBin "home-manager-change" ''
+     home-manager switch \
+       --flake ~/code/github/user-configuration#$1
+     '')
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -56,9 +61,7 @@ in
   };
 
   home.keyboard = {
-    layout = "us,ru";
-    # layout = "us,ru,no";
-    options = [ "grp:toggle" ];
+    layout = "no";
   };
 
   targets.genericLinux.enable = true;
@@ -89,5 +92,7 @@ in
     ../../services/window-managers/i3.nix
     ../../services/picom.nix
     ../../misc/gtk.nix
+    ../../programs/autorandr.nix
+    ../../programs/messenger.nix
   ];
 }

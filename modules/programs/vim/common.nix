@@ -2,7 +2,7 @@
 
 let
   plugins = {
-    vim-cpp-modern = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    vim-cpp-modern = pkgs.vimUtils.buildVimPlugin {
       name = "vim-cpp-modern";
       src = pkgs.fetchFromGitHub {
         owner = "bfrg";
@@ -16,7 +16,7 @@ let
         let g:cpp_member_highlight = 1
       '';
     };
-    ctrlsf = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    ctrlsf = pkgs.vimUtils.buildVimPlugin {
       name = "ctrlsf";
       src = pkgs.fetchFromGitHub {
         owner = "dyng";
@@ -41,7 +41,7 @@ let
         inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
       '';
     };
-    vim-fswitch = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    vim-fswitch = pkgs.vimUtils.buildVimPlugin {
       name = "vim-fswitch";
       src = pkgs.fetchFromGitHub {
         owner = "derekwyatt";
@@ -93,6 +93,7 @@ in
      pkgs.vimPlugins.vim-toml
      pkgs.vimPlugins.vim-nix
      plugins.vim-cpp-modern
+     pkgs.vimPlugins.vim-clang-format
   ] ++ builtins.attrValues plugins;
   extraConfig = ''
     set autoindent
@@ -108,6 +109,7 @@ in
     au BufRead,BufNewFile *.py set tabstop=4 softtabstop=4 shiftwidth=4
     au BufRead,BufNewFile *.html set tabstop=4 softtabstop=4 shiftwidth=4
     au BufRead,BufNewFile *.qml set tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufWritePre *.cpp,*.h :ClangFormat
 
     set nocompatible
     set number
@@ -267,5 +269,7 @@ in
 
     nnoremap <silent> <C-p> :GFiles<CR>
     nnoremap <silent> <C-f> :Files<CR>
+    nnoremap <c-w>b :b#<cr>
+    nnoremap <c-w>k :FSHere<cr>
   '' + pluginsExtraConfig;
 }

@@ -4,7 +4,9 @@ let
 in {
   home.packages = [
     pkgs.slack
-    # pkgs.telegram-desktop
-    pkgs.discord
   ];
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+    "slack"
+  ];
+
 }
