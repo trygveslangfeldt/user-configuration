@@ -93,6 +93,7 @@ in
      pkgs.vimPlugins.vim-toml
      pkgs.vimPlugins.vim-nix
      plugins.vim-cpp-modern
+     pkgs.vimPlugins.vim-clang-format
   ] ++ builtins.attrValues plugins;
   extraConfig = ''
     set autoindent
@@ -108,6 +109,7 @@ in
     au BufRead,BufNewFile *.py set tabstop=4 softtabstop=4 shiftwidth=4
     au BufRead,BufNewFile *.html set tabstop=4 softtabstop=4 shiftwidth=4
     au BufRead,BufNewFile *.qml set tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufWritePre *.cpp,*.h :ClangFormat
 
     set nocompatible
     set number
