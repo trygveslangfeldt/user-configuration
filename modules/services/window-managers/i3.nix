@@ -63,6 +63,7 @@ in {
             { "class" = "Wine"; }
             { "class" = "QtQmlViewer"; }
             { "class" = "xochitl"; }
+            { "class" = "DB Browser for SQLite"; } # Updated class name here
           ];
         };
         gaps = {

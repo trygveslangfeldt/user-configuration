@@ -11,6 +11,7 @@
     # python3
     zip
     unzip
+    sqlitebrowser
   ];
 
   imports = [
