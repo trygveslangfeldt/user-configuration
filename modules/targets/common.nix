@@ -31,7 +31,6 @@ in
   xdg.enable = true;
 
   imports = [
-    ../programs/shell.nix
     ../programs/git.nix
     ../programs/ssh.nix
     ../programs/dircolors.nix
