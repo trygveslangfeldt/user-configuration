@@ -32,7 +32,6 @@ in
 
   imports = [
     ../programs/shell.nix
-    ../programs/console.nix
     ../programs/git.nix
     ../programs/ssh.nix
     ../programs/dircolors.nix
