@@ -88,6 +88,7 @@ in
   imports = [
     ../common.nix
     ../../programs/console.nix
+    ../../programs/bash.nix
     ../../programs/dev.nix
     ../../programs/vim/vim.nix
     ../../services/window-managers/i3.nix

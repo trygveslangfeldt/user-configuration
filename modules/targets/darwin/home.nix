@@ -15,6 +15,7 @@ in {
 
   imports = [
     ../common.nix
+    ../../programs/zsh.nix
     ../../programs/vim/neovim.nix
     ../../programs/messenger.nix
   ];
