@@ -11,6 +11,6 @@
   ];
 
   imports = [
-    ./ccache.nix
+    ../../programs/ccache.nix
   ];
 }
