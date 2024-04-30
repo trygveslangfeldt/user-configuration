@@ -10,6 +10,14 @@ in {
       let g:neovide_cursor_animation_length = 0
       let g:neovide_cursor_trail_size = 0
     '';
+
+    plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      nvim-dap
+      nvim-treesitter
+      null-ls-nvim
+      mason-nvim
+    ] ++ vimCommon.plugins;
   };
 
   home.packages = [
