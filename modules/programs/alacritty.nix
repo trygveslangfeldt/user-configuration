@@ -2,10 +2,7 @@
 
 {
   home.packages = [
-    pkgs.nixgl.nixGLIntel
-    (pkgs.writeShellScriptBin "nixgl-alacritty" ''
-      ${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel -- ${pkgs.alacritty}/bin/alacritty
-    '')
+    pkgs.alacritty
   ];
 
   programs.alacritty = {
@@ -36,6 +33,6 @@
   };
 
   home.sessionVariables = {
-    TERMINAL = "nixgl-alacritty";
+    TERMINAL = "alacritty";
   };
 }

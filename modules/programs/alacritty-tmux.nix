@@ -37,7 +37,6 @@ in
       };
 
       window = {
-        startup_mode = "SimpleFullScreen";
       };
 
       keyboard.bindings = [
@@ -45,9 +44,9 @@ in
         { key = "P"; mods ="Alt"; action = "Paste"; }
 
         { key = "F"; mods ="Alt"; action = "ToggleSimpleFullscreen"; }
-        { key = "N"; mods = "Alt"; action = "CreateNewTab"; }
-        { key = "L"; mods = "Alt"; action = "SelectNextTab"; }
-        { key = "H"; mods = "Alt"; action = "SelectPreviousTab"; }
+        #{ key = "N"; mods = "Alt"; action = "CreateNewTab"; }
+        #{ key = "L"; mods = "Alt"; action = "SelectNextTab"; }
+        #{ key = "H"; mods = "Alt"; action = "SelectPreviousTab"; }
 
         { key = "H"; mode = "Vi"; action = "Left"; }
         { key = "J"; mode = "Vi"; action = "Down"; }
