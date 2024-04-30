@@ -8,6 +8,8 @@
     unzip
     pkg-config
     clang-tools_16
+    cargo
+    rustc
   ];
 
   imports = [
