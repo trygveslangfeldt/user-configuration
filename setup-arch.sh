@@ -59,7 +59,7 @@ pacman -S --noconfirm sudo
 sed -i -e 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 # Graphics
-pacman -S --noconfirm xorg-xinit lightdm lightdm-gtk-greeter i3lock google-chrome alacritty
+pacman -S --noconfirm xorg-xinit lightdm lightdm-gtk-greeter i3lock alacritty
 systemctl enable lightdm.service
 
 
@@ -69,36 +69,3 @@ sed -i -e 's/^#Color/Color/' /etc/pacman.conf
 pacman -S --noconfirm pavucontrol pulseaudio pulseaudio-alsa
 systemctl start --user pulseaudio.service
 
-# Chats
-pacman -S --noconfirm slack discord
-
-# Install Nix
-pacman -S --noconfirm nix
-gpasswd -a ${username_arg} nix-users
-systemctl enable nix-daemon.service
-nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-nix-channel --update
-
-# Setup nix
-echo "/home/${username_arg}/.nix-profile/bin/zsh" >> /ets/shells
-chsh -s /home/${username_arg}/.nix-profile/bin/zsh ${username_arg}
-
-mkdir -p /usr/share/xsessions
-cat <<EOF > /usr/share/xsessions/i3.desktop
-[Desktop Entry]
-Name=i3
-Comment=improved dynamic tiling window manager
-Exec=/home/msvetkin/.nix-profile/bin/i3-session-target
-Type=Application
-X-LightDM-DesktopName=i3
-DesktopNames=i3
-Keywords=tiling;wm;windowmanager;window;manager;
-EOF
-
-su - ${username_arg}
-
-# Get user-configuration
-cd ~/
-mkdir -p code/github
-cd code/github
-git clone https://github.com/trygveslangfeldt/user-configuration.git
