@@ -41,13 +41,14 @@ systemctl enable nix-daemon.service
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 nix-channel --update
 
+systemctl start --user pulseaudio.service
 
 mkdir -p /usr/share/xsessions
 cat <<EOF > /usr/share/xsessions/i3.desktop
 [Desktop Entry]
 Name=i3
 Comment=improved dynamic tiling window manager
-Exec=/home/msvetkin/.nix-profile/bin/i3-session-target
+Exec=/home/${username_arg}/.nix-profile/bin/i3-session-target
 Type=Application
 X-LightDM-DesktopName=i3
 DesktopNames=i3

@@ -67,5 +67,4 @@ sed -i -e 's/^#Color/Color/' /etc/pacman.conf
 
 # Audio
 pacman -S --noconfirm pavucontrol pulseaudio pulseaudio-alsa
-systemctl start --user pulseaudio.service
 
