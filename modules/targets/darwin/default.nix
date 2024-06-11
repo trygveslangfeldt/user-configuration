@@ -1,5 +1,6 @@
-{ nixpkgs, home-manager, darwin, username, ... }:
+{ nixpkgs, home-manager, darwin, ... }:
 let
+  username="trygvelangfeldt";
 
 in {
   laptop = darwin.lib.darwinSystem {
