@@ -1,9 +1,10 @@
-{ nixpkgs, nixgl, home-manager, username, ... }:
+{ nixpkgs, nixgl, home-manager, ... }:
 let
   pkgs = import nixpkgs {
     system = "x86_64-linux";
     overlays = [ nixgl.overlay ];
   };
+  username = "trygve";
 in
 {
   laptop = home-manager.lib.homeManagerConfiguration {
