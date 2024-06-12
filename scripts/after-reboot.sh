@@ -35,12 +35,8 @@ echo "hostname = ${hostname_arg}"
 echo "username = ${username_arg}"
 
 # Install Nix
-pacman -S --noconfirm nix
-gpasswd -a ${username_arg} nix-users
-systemctl enable nix-daemon.service
-nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-nix-channel --update
 
+systemctl enable lightdm.service
 systemctl start --user pulseaudio.service
 
 mkdir -p /usr/share/xsessions
@@ -55,10 +51,3 @@ DesktopNames=i3
 Keywords=tiling;wm;windowmanager;window;manager;
 EOF
 
-su - ${username_arg}
-
-# Get user-configuration
-cd ~/
-mkdir -p code/github
-cd code/github
-git clone https://github.com/trygveslangfeldt/user-configuration.git

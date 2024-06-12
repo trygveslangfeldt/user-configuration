@@ -60,7 +60,6 @@ sed -i -e 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 # Graphics
 pacman -S --noconfirm xorg-xinit lightdm lightdm-gtk-greeter i3lock alacritty
-systemctl enable lightdm.service
 
 
 sed -i -e 's/^#Color/Color/' /etc/pacman.conf
