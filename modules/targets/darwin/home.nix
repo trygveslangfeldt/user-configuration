@@ -12,7 +12,11 @@ in {
         --flake ~/code/github/user-configuration#${configuration} "$@"
     '')
   ];
-
+  home = {
+    sessionVariables = {
+      QT_LOGGING_CONF = ''${config.home.homeDirectory}/.qtlog'';
+    };
+  };
   imports = [
     ../common.nix
     ./dev.nix
