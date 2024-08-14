@@ -9,7 +9,9 @@
     pkg-config
     clang-tools_16
     cargo
+    openssl
     rustc
+    sqlitebrowser
   ];
 
   imports = [
