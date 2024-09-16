@@ -26,6 +26,7 @@ in
     brews = [
       "openjdk@17"
       "openjdk@11"
+      "openssl"
     ];
     #autoUpdate = true;
     #onActivation.upgrade = true;
