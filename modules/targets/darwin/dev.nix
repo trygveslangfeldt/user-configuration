@@ -8,9 +8,11 @@
     unzip
     pkg-config
     clang-tools_16
+    sqlitebrowser
     cargo
     openssl
     rustc
+    flutter
     sqlitebrowser
   ];
 
