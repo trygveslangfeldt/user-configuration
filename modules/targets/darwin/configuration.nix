@@ -27,6 +27,7 @@ in
       "openjdk@17"
       "openjdk@11"
       "openssl"
+      "qt"
     ];
     #autoUpdate = true;
     #onActivation.upgrade = true;

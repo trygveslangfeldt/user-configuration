@@ -8,11 +8,17 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
-      "gitlab.com" = {
-        identityFile = "~/.ssh/gitlab.com";
-      };
       "github.com" = {
+        hostname= "github.com";
         identityFile = "~/.ssh/github.com";
+      };
+      "github-hrisnes" = {
+        hostname= "github.com";
+        identityFile = "~/.ssh/hrisnes";
+      };
+      "github-cabincrew" = {
+        hostname= "github.com";
+        identityFile = "~/.ssh/cabincrew";
       };
       "rm" = {
         user = "root";

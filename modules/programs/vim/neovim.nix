@@ -25,6 +25,6 @@ in {
   ];
 
   programs.zsh.shellAliases = {
-    gvim = "${pkgs.neovide}/bin/neovide";
+    gvim = "${pkgs.neovide}/bin/neovide &";
   };
 }
