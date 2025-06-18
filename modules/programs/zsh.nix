@@ -9,7 +9,7 @@
         ls = "ls -a --color=auto";
         ll = "ls -l";
       };
-      initExtra = ''
+      initContent = ''
         unset PAGER;
         unset LESS;
       '';

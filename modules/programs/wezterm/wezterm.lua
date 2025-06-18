@@ -13,8 +13,9 @@ config.show_new_tab_button_in_tab_bar = false
 config.show_tab_index_in_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
--- config.font = wezterm.font 'Liberation Mono'
+config.font = wezterm.font 'JetBrains Mono'
 config.font_size = 16
+config.front_end = "WebGpu"
 config.color_scheme = 'Material Darker (base16)'
 
 config.keys = {

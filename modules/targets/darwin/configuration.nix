@@ -1,16 +1,11 @@
 { pkgs, username, ... }:
-let
 
-in
 {
-  services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
   nixpkgs.config.allowUnfree = true;
 
+  nix.enable = false;
   nix.settings.experimental-features = "nix-command flakes";
-
-  # Set Git commit hash for darwin-version.
-  #system.configurationRevision = self.rev or self.dirtyRev or null;
 
   programs.zsh.enable = true;
 
@@ -19,7 +14,13 @@ in
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   users.users."${username}".home = "/Users/${username}";
-  security.pam.enableSudoTouchIdAuth = true;
+
+  # FIX 1: The Touch ID option was renamed in the new nix-darwin version.
+  security.pam.services.sudo_local.touchIdAuth = true;
+
+  # FIX 2: Explicitly set the primary user, which is now required for Homebrew.
+  # We can just reuse the `username` variable that is passed into this file.
+  system.primaryUser = username;
 
   homebrew = {
     enable = true;
@@ -27,10 +28,6 @@ in
       "openjdk@17"
       "openjdk@11"
     ];
-    #autoUpdate = true;
-    #onActivation.upgrade = true;
-    # updates homebrew packages on activation,
-    # can make darwin-rebuild much slower (otherwise i'd forget to do it ever though)
     casks = [
       "amethyst"
     ];
