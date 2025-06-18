@@ -13,6 +13,8 @@
     enable = true;
     aliases = {
       meld = "difftool -y -t meld";
+      s = "status";
+      co = "checkout";
     };
     difftastic = {
       enable = true;
