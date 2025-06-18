@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
+let
 
-{
+in {
   home.packages = with pkgs; [
     ctags
     cmake
@@ -13,8 +14,13 @@
     rustc
     sqlitebrowser
   ];
-
+  home = {
+    sessionVariables = {
+      QT_LOGGING_CONF = ''${config.home.homeDirectory}/.qtlog'';
+    };
+  };
   imports = [
     ../../programs/ccache.nix
+    ./base.nix
   ];
 }

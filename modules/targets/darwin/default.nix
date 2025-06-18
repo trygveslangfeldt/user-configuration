@@ -3,7 +3,7 @@ let
   username="trygve.sigurdsson.langfeldt";
 
 in {
-  laptop = darwin.lib.darwinSystem {
+  cpp = darwin.lib.darwinSystem {
     system = "aarch64-darwin";
     modules = [
       ./configuration.nix
@@ -11,11 +11,22 @@ in {
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users."${username}" = import ./home.nix;
-        home-manager.extraSpecialArgs = {
-          configuration = "laptop";
-        };
-
+        home-manager.users."${username}" = import ./cpp.nix;
+      }
+    ];
+    specialArgs = {
+      inherit username;
+    };
+  };
+  web = darwin.lib.darwinSystem {
+    system = "aarch64-darwin";
+    modules = [
+      ./configuration.nix
+      home-manager.darwinModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users."${username}" = import ./web.nix;
       }
     ];
     specialArgs = {

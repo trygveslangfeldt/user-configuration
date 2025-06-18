@@ -3,13 +3,9 @@ let
 
 in {
   home.packages = [
-    (pkgs.writeShellScriptBin "home-manager-switch" ''
+    (pkgs.writeShellScriptBin "switch-profile" ''
       sudo darwin-rebuild switch \
-        --flake ~/code/github/user-configuration#${configuration} "$@"
-    '')
-    (pkgs.writeShellScriptBin "home-manager-build" ''
-      sudo darwin-rebuild build \
-        --flake ~/code/github/user-configuration#${configuration} "$@"
+        --flake ~/code/github/user-configuration#$@
     '')
   ];
   home = {
