@@ -1,6 +1,6 @@
 { nixpkgs, home-manager, darwin, ... }:
 let
-  username="trygvelangfeldt";
+  username="trygve.sigurdsson.langfeldt";
 
 in {
   laptop = darwin.lib.darwinSystem {
@@ -15,6 +15,7 @@ in {
         home-manager.extraSpecialArgs = {
           configuration = "laptop";
         };
+
       }
     ];
     specialArgs = {

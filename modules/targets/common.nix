@@ -22,8 +22,11 @@ in
     pkgs.ripgrep
     pkgs.bat
     pkgs.hostname
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "LiberationMono" ]; })
   ];
 
+  # Enable fonts on mac
+  #home.fonts.fontDir.enable = true;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   fonts.fontconfig.enable = true;

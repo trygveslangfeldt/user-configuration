@@ -1,0 +1,14 @@
+Install on mac
+
+Install nix
+'curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix
+| sh -s -- install'
+
+
+#Build darwin config
+nix build .#darwinConfigurations.laptop.system
+
+#Activate configuration
+./result/sw/bin/darwin-rebuild switch --flake .#laptop
+
+

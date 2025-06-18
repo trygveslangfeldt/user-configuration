@@ -19,11 +19,8 @@ in {
   };
   imports = [
     ../common.nix
-    ./dev.nix
     ../../programs/zsh.nix
     ../../programs/wezterm/wezterm.nix
-    ../../programs/alacritty-tmux.nix
     ../../programs/vim/neovim.nix
-    ../../programs/messenger.nix
   ];
 }
