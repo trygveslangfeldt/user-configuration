@@ -10,6 +10,7 @@ in {
     pkg-config
     clang-tools_16
     cargo
+    jira-cli-go
     openssl
     rustc
     sqlitebrowser

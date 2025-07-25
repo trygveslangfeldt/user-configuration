@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, profile, ... }:
 
 {
   home.packages = [
@@ -21,5 +21,7 @@
       background = "dark";
     };
     lfs.enable = true;
+    userName = profile.userName;
+    userEmail = profile.userEmail;
   };
 }

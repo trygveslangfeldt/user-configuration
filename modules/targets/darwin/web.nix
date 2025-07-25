@@ -3,6 +3,8 @@ let
 
 in {
   home.packages = with pkgs; [
+    corepack
+    nodejs
   ];
   home = {
   };

@@ -11,6 +11,7 @@ in {
   home = {
     sessionVariables = {
       QT_LOGGING_CONF = ''${config.home.homeDirectory}/.qtlog'';
+      JIRA_API_TOKEN = ''$(cat ${config.home.homeDirectory}/.jira)'';
     };
   };
   imports = [

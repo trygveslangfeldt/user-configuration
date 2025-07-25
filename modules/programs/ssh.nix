@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, profile, ... }:
 
 {
   home.packages = [
@@ -8,11 +8,8 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
-      "gh-rm" = {
-        identityFile = "~/.ssh/gh-rm";
-      };
-      "gh-cc" = {
-        identityFile = "gh-cc";
+      "github.com" = {
+        identityFile = "~/.ssh/${profile.ssh}";
       };
       "rm" = {
         user = "root";
